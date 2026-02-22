@@ -177,7 +177,6 @@
 }
 
 .otherIcon {
-    font-size: 3.5rem;
     background: white;
     width: 90px;
     height: 90px;
@@ -186,6 +185,19 @@
     justify-content: center;
     border-radius: 24px;
     box-shadow: var(--shadow-soft);
+    color: var(--primary);
+    transition: all 0.3s ease;
+}
+
+.otherIcon svg {
+    width: 45px;
+    height: 45px;
+}
+
+.otherCard:hover .otherIcon {
+    transform: scale(1.1);
+    color: var(--accent);
+    box-shadow: 0 10px 20px rgba(151, 7, 71, 0.1);
 }
 
 .otherInfo {
