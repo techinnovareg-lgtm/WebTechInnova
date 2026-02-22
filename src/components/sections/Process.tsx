@@ -1,3 +1,6 @@
+"use client";
+
+import { useEffect, useRef, useState } from 'react';
 import styles from './Process.module.css';
 
 const steps = [
@@ -24,15 +27,36 @@ const steps = [
 ];
 
 const Process = () => {
+    const [isVisible, setIsVisible] = useState(false);
+    const sectionRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    setIsVisible(true);
+                    observer.unobserve(entry.target);
+                }
+            },
+            { threshold: 0.2 }
+        );
+
+        if (sectionRef.current) {
+            observer.observe(sectionRef.current);
+        }
+
+        return () => observer.disconnect();
+    }, []);
+
     return (
-        <section className={styles.process}>
+        <section className={styles.process} ref={sectionRef}>
             <div className={`container ${styles.container}`}>
                 <div className={styles.header}>
                     <h2 className={styles.title}>Nuestro Proceso</h2>
                     <p className={styles.subtitle}>Un camino claro y estructurado para asegurar el éxito de cada implementación.</p>
                 </div>
 
-                <div className={styles.grid}>
+                <div className={`${styles.grid} ${isVisible ? styles.animate : ''}`}>
                     <div className={styles.progressLine}>
                         <div className={styles.progressBar}></div>
                     </div>

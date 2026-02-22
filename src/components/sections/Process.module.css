@@ -46,6 +46,11 @@
     height: 100%;
     width: 0;
     background: linear-gradient(90deg, var(--primary), var(--accent));
+    transition: width 0.3s ease;
+}
+
+.animate .progressBar,
+.grid:hover .progressBar {
     animation: loadLine 3s ease-in-out forwards;
 }
 
