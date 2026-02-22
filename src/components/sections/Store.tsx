@@ -96,6 +96,13 @@ const Store = () => {
                     <div className={styles.divider}></div>
                 </div>
 
+                <p className={styles.productDescription}>
+                    EasyRent es una solución integral diseñada para la administración profesional de propiedades,
+                    disponible en modalidades <strong>escritorio, web o híbrida</strong>. Optimiza la gestión de
+                    alquileres, contratos, inquilinos, ingresos y egresos con reportes detallados y contactos,
+                    todo bajo una interfaz moderna, ágil y fácil de usar.
+                </p>
+
                 <div className={styles.easyRentGrid}>
                     {easyRentPlans.map((plan, index) => (
                         <div
