@@ -1,11 +1,13 @@
 "use client";
 
+import { useState } from 'react';
 import styles from './Store.module.css';
 
 const easyRentPlans = [
     {
         name: "Plan Desktop",
         price: "S/ 200",
+        numericPrice: 200,
         period: "Pago Único",
         description: "Ideal para gestión local segura y permanente.",
         features: ["Propiedad total", "Sin cuotas mensuales", "Red local offline"],
@@ -15,6 +17,7 @@ const easyRentPlans = [
     {
         name: "Plan Híbrido",
         price: "S/ 200 + S/ 30",
+        numericPrice: 230,
         period: "mensual",
         description: "Flexibilidad total con respaldo en la nube.",
         features: ["Software local", "Respaldo en la nube", "Actualizaciones constantes", "Soporte prioritario"],
@@ -24,6 +27,7 @@ const easyRentPlans = [
     {
         name: "Plan Cloud",
         price: "S/ 30",
+        numericPrice: 30,
         period: "mensual",
         description: "Acceso total desde cualquier lugar del mundo.",
         features: ["Acceso global web", "Sin instalación", "Backups diarios", "Multidispositivo"],
@@ -82,7 +86,50 @@ const otherProducts = [
     }
 ];
 
+const paymentLinks = [
+    {
+        name: "Yape / Plin",
+        description: "Pagos instantáneos",
+        gradient: "linear-gradient(135deg, #74278c, #9c4bb1)",
+        icon: (
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+                <line x1="12" y1="18" x2="12.01" y2="18"></line>
+            </svg>
+        )
+    },
+    {
+        name: "Transferencia",
+        description: "BCP, Interbank, BBVA",
+        gradient: "linear-gradient(135deg, #003a8c, #0050b3)",
+        icon: (
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <rect x="2" y="5" width="20" height="14" rx="2"></rect>
+                <line x1="2" y1="10" x2="22" y2="10"></line>
+            </svg>
+        )
+    },
+    {
+        name: "PayPal",
+        description: "Tarjetas internacionales",
+        gradient: "linear-gradient(135deg, #003087, #009cde)",
+        icon: (
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+            </svg>
+        )
+    }
+];
+
 const Store = () => {
+    const [currency, setCurrency] = useState<'PEN' | 'USD' | 'EUR'>('PEN');
+
+    const formatPrice = (numericPrice: number, basePrice: string) => {
+        if (currency === 'PEN') return basePrice;
+        if (currency === 'USD') return `$ ${Math.round(numericPrice / 3.8)}`;
+        return `€ ${Math.round(numericPrice / 4.1)}`;
+    };
+
     return (
         <section className={styles.store} id="tienda">
             <div className={`container ${styles.container}`}>
@@ -102,6 +149,26 @@ const Store = () => {
                 <div className={styles.subHeader}>
                     <h3>EasyRent: Gestión Inmobiliaria</h3>
                     <div className={styles.divider}></div>
+                    <div className={styles.currencySwitcher}>
+                        <button
+                            className={`${styles.currencyBtn} ${currency === 'PEN' ? styles.activeCurrency : ''}`}
+                            onClick={() => setCurrency('PEN')}
+                        >
+                            Soles (S/)
+                        </button>
+                        <button
+                            className={`${styles.currencyBtn} ${currency === 'USD' ? styles.activeCurrency : ''}`}
+                            onClick={() => setCurrency('USD')}
+                        >
+                            Dólares ($)
+                        </button>
+                        <button
+                            className={`${styles.currencyBtn} ${currency === 'EUR' ? styles.activeCurrency : ''}`}
+                            onClick={() => setCurrency('EUR')}
+                        >
+                            Euros (€)
+                        </button>
+                    </div>
                 </div>
 
                 <p className={styles.productDescription}>
@@ -121,12 +188,8 @@ const Store = () => {
                             <h4 className={styles.planName}>{plan.name}</h4>
                             <div className={styles.priceInfo}>
                                 <div className={styles.mainPrice}>
-                                    <span className={styles.amount}>{plan.price}</span>
+                                    <span className={styles.amount}>{formatPrice(plan.numericPrice, plan.price)}</span>
                                     <span className={styles.period}>/ {plan.period}</span>
-                                </div>
-                                <div className={styles.multiCurrency}>
-                                    <span>$ {Math.round(parseInt(plan.price.replace(/[^\d]/g, '')) / 3.8)} USD</span>
-                                    <span>€ {Math.round(parseInt(plan.price.replace(/[^\d]/g, '')) / 4.1)} EUR</span>
                                 </div>
                             </div>
                             <p className={styles.descriptionText}>{plan.description}</p>
@@ -161,11 +224,16 @@ const Store = () => {
 
                 <div className={styles.paymentMethods}>
                     <h4>Medios de Pago Aceptados</h4>
-                    <div className={styles.methodsGrid}>
-                        <div className={styles.method}>Depósito Bancario</div>
-                        <div className={styles.method}>Transferencia</div>
-                        <div className={styles.method}>Yape</div>
-                        <div className={styles.method}>PayPal</div>
+                    <div className={styles.paymentGrid}>
+                        {paymentLinks.map((p, i) => (
+                            <div key={i} className={styles.paymentCard} style={{ '--card-gradient': p.gradient } as any}>
+                                <div className={styles.paymentIcon}>{p.icon}</div>
+                                <div className={styles.paymentInfo}>
+                                    <h5>{p.name}</h5>
+                                    <p>{p.description}</p>
+                                </div>
+                            </div>
+                        ))}
                     </div>
                 </div>
             </div>
