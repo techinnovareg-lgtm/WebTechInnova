@@ -16,7 +16,7 @@ const Hero = () => {
                         <Link href="#servicios" className={styles.primaryBtn}>
                             Nuestras Soluciones
                         </Link>
-                        <Link href="#tienda" className={styles.secondaryBtn}>
+                        <Link href="/tienda" className={styles.secondaryBtn}>
                             Explorar Tienda
                         </Link>
 

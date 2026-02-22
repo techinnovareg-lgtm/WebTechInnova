@@ -14,9 +14,9 @@ const Footer = () => {
                     <div className={styles.links}>
                         <h4>Servicios</h4>
                         <ul>
-                            <li><Link href="#software">Software a Medida</Link></li>
-                            <li><Link href="#excel">Excel Avanzado</Link></li>
-                            <li><Link href="#tienda">Tienda Digital</Link></li>
+                            <li><Link href="/#software">Software a Medida</Link></li>
+                            <li><Link href="/#excel">Excel Avanzado</Link></li>
+                            <li><Link href="/tienda">Tienda Digital</Link></li>
                         </ul>
                     </div>
 

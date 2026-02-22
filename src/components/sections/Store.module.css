@@ -187,11 +187,13 @@
     box-shadow: var(--shadow-soft);
     color: var(--primary);
     transition: all 0.3s ease;
+    flex-shrink: 0;
 }
 
 .otherIcon svg {
     width: 45px;
     height: 45px;
+    display: block;
 }
 
 .otherCard:hover .otherIcon {
