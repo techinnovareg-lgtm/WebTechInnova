@@ -41,7 +41,7 @@ const otherProducts = [
         title: "Control Anestésico",
         description: "Registro clínico completo: signos vitales, medicación y gráficos dinámicos transanestésicos.",
         price: "Bajo Cotización",
-        image: "https://images.unsplash.com/photo-1576091160550-2173bdb999ef?auto=format&fit=crop&w=600&q=80",
+        image: "https://images.pexels.com/photos/40568/medical-appointment-doctor-healthcare-40568.jpeg?auto=compress&cs=tinysrgb&w=600",
         icon: (
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
@@ -52,7 +52,7 @@ const otherProducts = [
         title: "Gestión de Horas",
         description: "Sistema web para el control, registro y recuperación de horas no laboradas eficientemente.",
         price: "Bajo Cotización",
-        image: "https://images.unsplash.com/photo-1454165833767-027fffd06c1c?auto=format&fit=crop&w=600&q=80",
+        image: "https://images.pexels.com/photos/3183186/pexels-photo-3183186.jpeg?auto=compress&cs=tinysrgb&w=600",
         icon: (
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <circle cx="12" cy="12" r="10"></circle>
@@ -177,7 +177,7 @@ const Store = () => {
 
                 <div className={styles.productHero}>
                     <img
-                        src="https://images.unsplash.com/photo-1560514481-be15c88b0ad0?auto=format&fit=crop&w=1200&q=80"
+                        src="https://images.pexels.com/photos/101808/pexels-photo-101808.jpeg?auto=compress&cs=tinysrgb&w=1200"
                         alt="Gestión inmobiliaria moderna"
                         className={styles.productHeroImage}
                     />

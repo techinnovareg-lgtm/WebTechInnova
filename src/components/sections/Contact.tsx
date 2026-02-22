@@ -23,7 +23,7 @@ const Contact = () => {
 
                     <div className={styles.contactImageWrapper}>
                         <img
-                            src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&q=80"
+                            src="https://images.pexels.com/photos/3182763/pexels-photo-3182763.jpeg?auto=compress&cs=tinysrgb&w=600"
                             alt="Oficina moderna colaborativa"
                             className={styles.contactImage}
                         />

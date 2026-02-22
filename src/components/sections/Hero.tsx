@@ -26,7 +26,7 @@ const Hero = () => {
                 <div className={styles.visualContainer}>
                     <div className={styles.imageWrapper}>
                         <img
-                            src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1000&q=80"
+                            src="https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=1000"
                             alt="Equipo profesional colaborando"
                             className={styles.heroImage}
                         />
