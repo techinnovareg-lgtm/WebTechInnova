@@ -1,0 +1,98 @@
+.process {
+    padding: 8rem 0;
+    background: white;
+    position: relative;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 6rem;
+}
+
+.title {
+    font-size: 2.8rem;
+    font-weight: 800;
+    margin-bottom: 1.2rem;
+}
+
+.subtitle {
+    color: #666;
+    max-width: 600px;
+    margin: 0 auto;
+    font-size: 1.1rem;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+}
+
+.step {
+    text-align: center;
+    position: relative;
+}
+
+.numberContainer {
+    width: 70px;
+    height: 70px;
+    background: var(--primary);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 2.5rem;
+    position: relative;
+    z-index: 2;
+    box-shadow: 0 8px 20px rgba(151, 7, 71, 0.3);
+}
+
+.number {
+    font-size: 1.5rem;
+    font-weight: 800;
+}
+
+.stepTitle {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--contrast);
+}
+
+.stepText {
+    color: #666;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.connector {
+    position: absolute;
+    top: 35px;
+    left: 60%;
+    width: 80%;
+    height: 2px;
+    background: var(--neutral-gray);
+    z-index: 1;
+}
+
+@media (max-width: 992px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 4rem;
+    }
+
+    .connector {
+        display: none;
+    }
+}
+
+@media (max-width: 600px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .step {
+        padding-bottom: 2rem;
+    }
+}

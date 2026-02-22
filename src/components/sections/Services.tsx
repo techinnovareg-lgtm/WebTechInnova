@@ -3,17 +3,17 @@ import styles from './Services.module.css';
 const services = [
     {
         title: "Software a Medida",
-        description: "Soluciones robustas para Desktop, Web y Android adaptadas a tu flujo de trabajo.",
+        description: "Desarrollamos aplicaciones web y móviles robustas, escalables y centradas en el usuario. Soluciones de alto rendimiento para procesos complejos.",
         icon: "💻"
     },
     {
-        title: "Plantillas MS Excel Avanzadas",
-        description: "Potencia tu gestión con herramientas inteligentes en la plataforma que ya conoces.",
+        title: "Automatización Excel",
+        description: "Transformamos tus hojas de cálculo en potentes herramientas de gestión con VBA y Power Query. Eficiencia máxima en la plataforma que ya conoces.",
         icon: "📊"
     },
     {
-        title: "Automatización con UiPath",
-        description: "Elimina tareas repetitivas y errores humanos mediante robots de software (RPA) de alta precisión.",
+        title: "Robotics (RPA)",
+        description: "Implementamos bots con UiPath para automatizar tareas repetitivas y liberar el potencial de tu equipo. Precisión quirúrgica en cada proceso.",
         icon: "🤖"
     }
 ];
@@ -23,8 +23,10 @@ const Services = () => {
         <section className={styles.services} id="servicios">
             <div className={`container ${styles.container}`}>
                 <div className={styles.header}>
-                    <h2 className={styles.title}>Nuestros Servicios</h2>
-                    <p className={styles.subtitle}>Soluciones integrales de transformación digital para empresas modernas.</p>
+                    <h2 className={styles.title}>Nuestras Soluciones</h2>
+                    <p className={styles.subtitle}>
+                        Soluciones tecnológicas integrales diseñadas para automatizar, optimizar y escalar tu empresa en la era digital.
+                    </p>
                 </div>
 
                 <div className={styles.grid}>
