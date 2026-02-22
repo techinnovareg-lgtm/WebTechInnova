@@ -17,7 +17,8 @@ const easyRentPlans = [
     {
         name: "Plan Híbrido",
         price: "S/ 200 + S/ 30",
-        numericPrice: 230,
+        oneTimeNumeric: 200,
+        monthlyNumeric: 30,
         period: "mensual",
         description: "Flexibilidad total con respaldo en la nube.",
         features: ["Software local", "Respaldo en la nube", "Actualizaciones constantes", "Soporte prioritario"],
@@ -128,10 +129,17 @@ const paymentLinks = [
 const Store = () => {
     const [currency, setCurrency] = useState<'PEN' | 'USD' | 'EUR'>('PEN');
 
-    const formatPrice = (numericPrice: number, basePrice: string) => {
+    const formatPrice = (numericPrice: number, basePrice: string, isHybrid?: boolean, oneTime?: number, monthly?: number) => {
         if (currency === 'PEN') return basePrice;
-        if (currency === 'USD') return `$ ${Math.round(numericPrice / 3.8)}`;
-        return `€ ${Math.round(numericPrice / 4.1)}`;
+
+        const rate = currency === 'USD' ? 3.8 : 4.1;
+        const symbol = currency === 'USD' ? '$' : '€';
+
+        if (isHybrid && oneTime !== undefined && monthly !== undefined) {
+            return `${symbol} ${Math.round(oneTime / rate)} + ${symbol} ${Math.round(monthly / rate)}`;
+        }
+
+        return `${symbol} ${Math.round(numericPrice / rate)}`;
     };
 
     return (
@@ -201,7 +209,15 @@ const Store = () => {
                             <h4 className={styles.planName}>{plan.name}</h4>
                             <div className={styles.priceInfo}>
                                 <div className={styles.mainPrice}>
-                                    <span className={styles.amount}>{formatPrice(plan.numericPrice, plan.price)}</span>
+                                    <span className={styles.amount}>
+                                        {formatPrice(
+                                            (plan as any).numericPrice || 0,
+                                            plan.price,
+                                            plan.name === "Plan Híbrido",
+                                            (plan as any).oneTimeNumeric,
+                                            (plan as any).monthlyNumeric
+                                        )}
+                                    </span>
                                     <span className={styles.period}>/ {plan.period}</span>
                                 </div>
                             </div>
