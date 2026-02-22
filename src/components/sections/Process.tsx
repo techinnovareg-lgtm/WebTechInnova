@@ -33,6 +33,9 @@ const Process = () => {
                 </div>
 
                 <div className={styles.grid}>
+                    <div className={styles.progressLine}>
+                        <div className={styles.progressBar}></div>
+                    </div>
                     {steps.map((step, index) => (
                         <div key={index} className={styles.step}>
                             <div className={styles.numberContainer}>
@@ -40,7 +43,6 @@ const Process = () => {
                             </div>
                             <h3 className={styles.stepTitle}>{step.title}</h3>
                             <p className={styles.stepText}>{step.description}</p>
-                            {index < steps.length - 1 && <div className={styles.connector}></div>}
                         </div>
                     ))}
                 </div>

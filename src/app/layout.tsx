@@ -4,6 +4,9 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Tech Innova | Transformación Digital y Desarrollo Full-Stack",
   description: "Soluciones robustas de software a medida, automatización RPA con UiPath y plantillas Excel avanzadas.",
+  icons: {
+    icon: '/favicon.svg',
+  },
 };
 
 export default function RootLayout({

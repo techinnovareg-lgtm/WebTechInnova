@@ -26,11 +26,43 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 2rem;
+    position: relative;
+}
+
+.progressLine {
+    position: absolute;
+    top: 35px;
+    left: 12%;
+    right: 12%;
+    height: 2px;
+    background: #f0f0f0;
+    z-index: 1;
+}
+
+.progressBar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0;
+    background: linear-gradient(90deg, var(--primary), var(--accent));
+    animation: loadLine 3s ease-in-out forwards;
+}
+
+@keyframes loadLine {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 100%;
+    }
 }
 
 .step {
     text-align: center;
     position: relative;
+    z-index: 2;
 }
 
 .numberContainer {
@@ -44,8 +76,13 @@
     justify-content: center;
     margin: 0 auto 2.5rem;
     position: relative;
-    z-index: 2;
+    z-index: 3;
     box-shadow: 0 8px 20px rgba(151, 7, 71, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.step:hover .numberContainer {
+    transform: scale(1.1);
 }
 
 .number {
@@ -66,23 +103,13 @@
     line-height: 1.6;
 }
 
-.connector {
-    position: absolute;
-    top: 35px;
-    left: 60%;
-    width: 80%;
-    height: 2px;
-    background: var(--neutral-gray);
-    z-index: 1;
-}
-
 @media (max-width: 992px) {
     .grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 4rem;
     }
 
-    .connector {
+    .progressLine {
         display: none;
     }
 }

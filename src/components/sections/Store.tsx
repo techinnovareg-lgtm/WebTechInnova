@@ -91,6 +91,14 @@ const Store = () => {
                     <p className={styles.subtitle}>Soluciones digitales listas para potenciar tu productividad y control.</p>
                 </div>
 
+                <div className={styles.internationalBanner}>
+                    <div className={styles.bannerIcon}>🌍</div>
+                    <div className={styles.bannerContent}>
+                        <h4>Expansión Internacional</h4>
+                        <p>Brindamos asesoría senior y soluciones digitales en <strong>Perú, España</strong> y otros países. Precios disponibles en moneda local para tu comodidad.</p>
+                    </div>
+                </div>
+
                 <div className={styles.subHeader}>
                     <h3>EasyRent: Gestión Inmobiliaria</h3>
                     <div className={styles.divider}></div>
@@ -112,8 +120,14 @@ const Store = () => {
                             {plan.recommended && <div className={styles.badge}>Recomendado</div>}
                             <h4 className={styles.planName}>{plan.name}</h4>
                             <div className={styles.priceInfo}>
-                                <span className={styles.amount}>{plan.price}</span>
-                                <span className={styles.period}>/ {plan.period}</span>
+                                <div className={styles.mainPrice}>
+                                    <span className={styles.amount}>{plan.price}</span>
+                                    <span className={styles.period}>/ {plan.period}</span>
+                                </div>
+                                <div className={styles.multiCurrency}>
+                                    <span>$ {Math.round(parseInt(plan.price.replace(/[^\d]/g, '')) / 3.8)} USD</span>
+                                    <span>€ {Math.round(parseInt(plan.price.replace(/[^\d]/g, '')) / 4.1)} EUR</span>
+                                </div>
                             </div>
                             <p className={styles.descriptionText}>{plan.description}</p>
                             <ul className={styles.featureList}>
@@ -143,6 +157,16 @@ const Store = () => {
                             <button className={styles.viewBtn}>Ver Detalles</button>
                         </div>
                     ))}
+                </div>
+
+                <div className={styles.paymentMethods}>
+                    <h4>Medios de Pago Aceptados</h4>
+                    <div className={styles.methodsGrid}>
+                        <div className={styles.method}>Depósito Bancario</div>
+                        <div className={styles.method}>Transferencia</div>
+                        <div className={styles.method}>Yape</div>
+                        <div className={styles.method}>PayPal</div>
+                    </div>
                 </div>
             </div>
         </section>
