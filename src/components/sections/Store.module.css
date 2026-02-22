@@ -1,0 +1,259 @@
+.store {
+    padding: 8rem 0;
+    background: white;
+    background-image: radial-gradient(circle at 0% 100%, rgba(151, 7, 71, 0.03) 0%, transparent 40%);
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 6rem;
+}
+
+.title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+    font-size: 1.25rem;
+    color: #666;
+}
+
+.subHeader {
+    margin-bottom: 3rem;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.subHeader h3 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--contrast);
+    white-space: nowrap;
+}
+
+.divider {
+    height: 2px;
+    flex-grow: 1;
+    background: linear-gradient(to right, var(--neutral-gray), transparent);
+}
+
+.easyRentGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+    margin-bottom: 4rem;
+}
+
+.planCard {
+    background: white;
+    padding: 3.5rem 2.5rem;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--neutral-gray);
+    display: flex;
+    flex-direction: column;
+    transition: all 0.4s ease;
+    position: relative;
+}
+
+.planCard:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-medium);
+}
+
+.recommended {
+    border: 2px solid var(--primary);
+    transform: scale(1.05);
+}
+
+.badge {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--primary);
+    color: white;
+    padding: 0.5rem 1.5rem;
+    font-size: 0.8rem;
+    font-weight: 800;
+    border-radius: 0 0 12px 12px;
+}
+
+.planName {
+    font-size: 1.6rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.priceInfo {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.amount {
+    font-size: 2.8rem;
+    font-weight: 900;
+    color: var(--primary);
+}
+
+.period {
+    color: #888;
+    margin-left: 0.5rem;
+}
+
+.descriptionText {
+    color: #666;
+    text-align: center;
+    margin-bottom: 2.5rem;
+    font-size: 0.95rem;
+}
+
+.featureList {
+    list-style: none;
+    margin-bottom: 3rem;
+    flex-grow: 1;
+}
+
+.featureList li {
+    padding: 0.8rem 0;
+    border-bottom: 1px solid #f0f0f0;
+    color: #444;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.featureList li::before {
+    content: "✓";
+    color: var(--primary);
+    font-weight: 900;
+}
+
+.buyBtn {
+    background: var(--primary);
+    color: white;
+    padding: 1.25rem;
+    border-radius: 100px;
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.buyBtn:hover {
+    background: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(151, 7, 71, 0.3);
+}
+
+.othersGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem;
+}
+
+.otherCard {
+    background: var(--neutral-light);
+    padding: 2.5rem;
+    border-radius: var(--radius-lg);
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    transition: all 0.3s ease;
+}
+
+.otherCard:hover {
+    background: white;
+    box-shadow: var(--shadow-medium);
+    transform: translateX(10px);
+}
+
+.otherIcon {
+    font-size: 3.5rem;
+    background: white;
+    width: 90px;
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 24px;
+    box-shadow: var(--shadow-soft);
+}
+
+.otherInfo {
+    flex-grow: 1;
+}
+
+.otherInfo h4 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--contrast);
+}
+
+.otherInfo p {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 1rem;
+}
+
+.otherPrice {
+    font-weight: 800;
+    color: var(--primary);
+    font-size: 1.1rem;
+}
+
+.viewBtn {
+    background: transparent;
+    color: var(--primary);
+    border: 2px solid var(--primary);
+    padding: 0.75rem 1.5rem;
+    border-radius: 100px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.viewBtn:hover {
+    background: var(--primary);
+    color: white;
+}
+
+@media (max-width: 1024px) {
+    .easyRentGrid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+
+    .recommended {
+        transform: none;
+    }
+
+    .othersGrid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .easyRentGrid {
+        grid-template-columns: 1fr;
+        max-width: 450px;
+        margin: 0 auto;
+    }
+
+    .title {
+        font-size: 2.5rem;
+    }
+
+    .subHeader h3 {
+        font-size: 1.5rem;
+    }
+}

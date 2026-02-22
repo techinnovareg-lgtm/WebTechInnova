@@ -17,8 +17,9 @@ const Hero = () => {
                             Nuestras Soluciones
                         </Link>
                         <Link href="#tienda" className={styles.secondaryBtn}>
-                            Ver EasyRent
+                            Explorar Tienda
                         </Link>
+
                     </div>
                 </div>
 

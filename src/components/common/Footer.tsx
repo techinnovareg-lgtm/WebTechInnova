@@ -16,7 +16,7 @@ const Footer = () => {
                         <ul>
                             <li><Link href="#software">Software a Medida</Link></li>
                             <li><Link href="#excel">Excel Avanzado</Link></li>
-                            <li><Link href="#uipath">Automatización RPA</Link></li>
+                            <li><Link href="#tienda">Tienda Digital</Link></li>
                         </ul>
                     </div>
 
