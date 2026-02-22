@@ -28,7 +28,12 @@ const steps = [
 
 const Process = () => {
     const [isVisible, setIsVisible] = useState(false);
+    const [animationKey, setAnimationKey] = useState(0);
     const sectionRef = useRef<HTMLDivElement>(null);
+
+    const restartAnimation = () => {
+        setAnimationKey(prev => prev + 1);
+    };
 
     useEffect(() => {
         const observer = new IntersectionObserver(
@@ -56,9 +61,21 @@ const Process = () => {
                     <p className={styles.subtitle}>Un camino claro y estructurado para asegurar el éxito de cada implementación.</p>
                 </div>
 
-                <div className={`${styles.grid} ${isVisible ? styles.animate : ''}`}>
+                <div className={styles.bannerWrapper}>
+                    <img
+                        src="https://images.unsplash.com/photo-1542744173-8e7e53815d18?auto=format&fit=crop&w=1200&h=400&q=80"
+                        alt="Reunión técnica colaborativa"
+                        className={styles.bannerImage}
+                    />
+                    <div className={styles.bannerOverlay}></div>
+                </div>
+
+                <div
+                    className={`${styles.grid} ${isVisible ? styles.animate : ''}`}
+                    onMouseEnter={restartAnimation}
+                >
                     <div className={styles.progressLine}>
-                        <div className={styles.progressBar}></div>
+                        <div key={animationKey} className={styles.progressBar}></div>
                     </div>
                     {steps.map((step, index) => (
                         <div key={index} className={styles.step}>

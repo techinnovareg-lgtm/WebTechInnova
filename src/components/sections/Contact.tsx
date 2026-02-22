@@ -21,6 +21,15 @@ const Contact = () => {
                         Déjanos tus datos y nos pondremos en contacto contigo para ofrecerte la mejor solución tecnológica para tu negocio.
                     </p>
 
+                    <div className={styles.contactImageWrapper}>
+                        <img
+                            src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&q=80"
+                            alt="Oficina moderna colaborativa"
+                            className={styles.contactImage}
+                        />
+                        <div className={styles.imageOverlay}></div>
+                    </div>
+
                     <div className={styles.directLinks}>
                         <div className={styles.linkItem}>
                             <strong>Correo:</strong>
