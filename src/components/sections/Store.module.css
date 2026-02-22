@@ -75,16 +75,43 @@
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
 }
 
+.productHero {
+    position: relative;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    margin-bottom: 4rem;
+    height: 350px;
+    box-shadow: var(--shadow-medium);
+}
+
+.productHeroImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.7);
+}
+
+.productHeroOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 4rem;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.7), transparent);
+}
+
 .productDescription {
-    color: #555;
+    color: white;
     font-size: 1.15rem;
     line-height: 1.7;
-    max-width: 900px;
-    margin-bottom: 4rem;
-    background: var(--neutral-light);
-    padding: 2rem;
-    border-radius: var(--radius-md);
-    border-left: 4px solid var(--primary);
+    max-width: 600px;
+    margin-bottom: 0;
+    background: transparent;
+    padding: 0;
+    border: none;
 }
 
 .easyRentGrid {
@@ -204,79 +231,75 @@
 }
 
 .otherCard {
-    background: var(--neutral-light);
-    padding: 2.5rem;
+    background: white;
     border-radius: var(--radius-lg);
     display: flex;
-    align-items: center;
-    gap: 2rem;
+    flex-direction: column;
+    overflow: hidden;
+    border: 1px solid var(--neutral-gray);
     transition: all 0.3s ease;
 }
 
 .otherCard:hover {
-    background: white;
     box-shadow: var(--shadow-medium);
-    transform: translateX(10px);
+    transform: translateY(-5px);
 }
 
-.otherIcon {
-    background: white;
-    width: 90px;
-    height: 90px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 24px;
-    box-shadow: var(--shadow-soft);
-    color: var(--primary);
-    transition: all 0.3s ease;
-    flex-shrink: 0;
+.otherImageWrapper {
+    height: 180px;
+    width: 100%;
+    overflow: hidden;
 }
 
-.otherIcon svg {
-    width: 45px;
-    height: 45px;
-    display: block;
+.otherCardImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
 }
 
-.otherCard:hover .otherIcon {
+.otherCard:hover .otherCardImage {
     transform: scale(1.1);
-    color: var(--accent);
-    box-shadow: 0 10px 20px rgba(151, 7, 71, 0.1);
 }
 
 .otherInfo {
+    padding: 2rem;
     flex-grow: 1;
 }
 
+.otherIconTitle {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.miniIcon {
+    color: var(--primary);
+    width: 30px;
+    height: 30px;
+}
+
+.miniIcon svg {
+    width: 100%;
+    height: 100%;
+}
+
 .otherInfo h4 {
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
+    font-size: 1.4rem;
+    margin-bottom: 0;
     color: var(--contrast);
 }
 
 .otherInfo p {
-    font-size: 1rem;
+    font-size: 0.95rem;
     color: #666;
-    margin-bottom: 1rem;
-}
-
-.otherPrice {
-    font-weight: 800;
-    color: var(--primary);
-    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
 }
 
 .viewBtn {
-    background: transparent;
-    color: var(--primary);
-    border: 2px solid var(--primary);
-    padding: 0.75rem 1.5rem;
-    border-radius: 100px;
-    font-weight: 700;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    white-space: nowrap;
+    margin: 0 2rem 2rem;
+    align-self: flex-start;
 }
 
 .viewBtn:hover {

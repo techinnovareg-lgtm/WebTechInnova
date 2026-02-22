@@ -41,6 +41,7 @@ const otherProducts = [
         title: "Control Anestésico",
         description: "Registro clínico completo: signos vitales, medicación y gráficos dinámicos transanestésicos.",
         price: "Bajo Cotización",
+        image: "https://images.unsplash.com/photo-1576091160550-2173bdb999ef?auto=format&fit=crop&w=600&q=80",
         icon: (
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
@@ -51,6 +52,7 @@ const otherProducts = [
         title: "Gestión de Horas",
         description: "Sistema web para el control, registro y recuperación de horas no laboradas eficientemente.",
         price: "Bajo Cotización",
+        image: "https://images.unsplash.com/photo-1454165833767-027fffd06c1c?auto=format&fit=crop&w=600&q=80",
         icon: (
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <circle cx="12" cy="12" r="10"></circle>
@@ -62,6 +64,7 @@ const otherProducts = [
         title: "Colección de Plantillas",
         description: "Herramientas de automatización en Excel para finanzas, RRHH y logística corporativa.",
         price: "Desde S/ 45",
+        image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80",
         icon: (
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
@@ -75,6 +78,7 @@ const otherProducts = [
         title: "Consultoría Senior",
         description: "Asesoría personalizada para optimizar tus procesos y arquitectura de software.",
         price: "Bajo Cotización",
+        image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=600&q=80",
         icon: (
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
@@ -171,12 +175,21 @@ const Store = () => {
                     </div>
                 </div>
 
-                <p className={styles.productDescription}>
-                    EasyRent es una solución integral diseñada para la administración profesional de propiedades,
-                    disponible en modalidades <strong>escritorio, web o híbrida</strong>. Optimiza la gestión de
-                    alquileres, contratos, inquilinos, ingresos y egresos con reportes detallados y contactos,
-                    todo bajo una interfaz moderna, ágil y fácil de usar.
-                </p>
+                <div className={styles.productHero}>
+                    <img
+                        src="https://images.unsplash.com/photo-1560514481-be15c88b0ad0?auto=format&fit=crop&w=1200&q=80"
+                        alt="Gestión inmobiliaria moderna"
+                        className={styles.productHeroImage}
+                    />
+                    <div className={styles.productHeroOverlay}>
+                        <p className={styles.productDescription}>
+                            EasyRent es una solución integral diseñada para la administración profesional de propiedades,
+                            disponible en modalidades <strong>escritorio, web o híbrida</strong>. Optimiza la gestión de
+                            alquileres, contratos, inquilinos, ingresos y egresos con reportes detallados y contactos,
+                            todo bajo una interfaz moderna, ágil y fácil de usar.
+                        </p>
+                    </div>
+                </div>
 
                 <div className={styles.easyRentGrid}>
                     {easyRentPlans.map((plan, index) => (
@@ -211,9 +224,14 @@ const Store = () => {
                 <div className={styles.othersGrid}>
                     {otherProducts.map((prod, index) => (
                         <div key={index} className={styles.otherCard}>
-                            <div className={styles.otherIcon}>{prod.icon}</div>
+                            <div className={styles.otherImageWrapper}>
+                                <img src={prod.image as string} alt={prod.title} className={styles.otherCardImage} />
+                            </div>
                             <div className={styles.otherInfo}>
-                                <h4>{prod.title}</h4>
+                                <div className={styles.otherIconTitle}>
+                                    <div className={styles.miniIcon}>{prod.icon}</div>
+                                    <h4>{prod.title}</h4>
+                                </div>
                                 <p>{prod.description}</p>
                                 <span className={styles.otherPrice}>{prod.price}</span>
                             </div>

@@ -24,6 +24,14 @@ const Hero = () => {
                 </div>
 
                 <div className={styles.visualContainer}>
+                    <div className={styles.imageWrapper}>
+                        <img
+                            src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1000&q=80"
+                            alt="Equipo profesional colaborando"
+                            className={styles.heroImage}
+                        />
+                        <div className={styles.imageOverlay}></div>
+                    </div>
                     <div className={styles.glassCard}>
                         <div className={styles.floatingBadge}>SENIOR CONSULTING</div>
                         <div className={styles.cardContent}>

@@ -43,10 +43,20 @@ const Services = () => {
         <section className={styles.services} id="servicios">
             <div className={`container ${styles.container}`}>
                 <div className={styles.header}>
-                    <h2 className={styles.title}>Nuestras Soluciones</h2>
-                    <p className={styles.subtitle}>
-                        Soluciones tecnológicas integrales diseñadas para automatizar, optimizar y escalar tu empresa en la era digital.
-                    </p>
+                    <div className={styles.headerContent}>
+                        <h2 className={styles.title}>Nuestras Soluciones</h2>
+                        <p className={styles.subtitle}>
+                            Soluciones tecnológicas integrales diseñadas para automatizar, optimizar y escalar tu empresa en la era digital.
+                        </p>
+                    </div>
+                    <div className={styles.headerImageWrapper}>
+                        <img
+                            src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80"
+                            alt="Desarrollo profesional de software"
+                            className={styles.headerImage}
+                        />
+                        <div className={styles.imageDecoration}></div>
+                    </div>
                 </div>
 
                 <div className={styles.grid}>
