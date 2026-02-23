@@ -54,6 +54,7 @@ const otherProducts = [
         description: "Sistema web para el control, registro y recuperación de horas no laboradas eficientemente.",
         price: "Bajo Cotización",
         image: "/images/stock/time-management.jpg",
+        url: "https://techinnovareg-lgtm.github.io/control-horas-app",
         icon: (
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <circle cx="12" cy="12" r="10"></circle>
@@ -285,7 +286,13 @@ const Store = () => {
                                 <p>{prod.description}</p>
                                 <span className={styles.otherPrice}>{prod.price}</span>
                             </div>
-                            <button className={styles.viewBtn}>Ver Detalles</button>
+                            {prod.url ? (
+                                <a href={prod.url} target="_blank" rel="noopener noreferrer" className={`${styles.viewBtn} ${styles.buyBtnLink}`}>
+                                    Ver Aplicativo
+                                </a>
+                            ) : (
+                                <button className={styles.viewBtn}>Ver Detalles</button>
+                            )}
                         </div>
                     ))}
                 </div>
