@@ -77,13 +77,53 @@
 }
 
 @media (max-width: 992px) {
-    .navList {
-        display: none;
-    }
-
     .mobileMenuBtn {
         display: block;
-        font-size: 1.5rem;
+        font-size: 2rem;
+        background: transparent;
+        border: none;
         color: var(--primary);
+        cursor: pointer;
+        z-index: 1001;
+        transition: transform 0.3s ease;
+    }
+
+    .btnActive {
+        transform: rotate(90deg);
+        color: var(--accent);
+    }
+
+    .nav {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 80%;
+        height: 100vh;
+        background: white;
+        padding: 6rem 2rem;
+        transition: right 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        box-shadow: -10px 0 30px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+    }
+
+    .navActive {
+        right: 0;
+    }
+
+    .navList {
+        flex-direction: column;
+        gap: 2rem;
+        align-items: center;
+    }
+
+    .navItem a {
+        font-size: 1.2rem;
+        font-weight: 600;
+    }
+
+    .contactBtn {
+        display: block;
+        width: 100%;
+        text-align: center;
     }
 }

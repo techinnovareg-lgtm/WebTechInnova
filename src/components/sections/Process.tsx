@@ -63,7 +63,7 @@ const Process = () => {
 
                 <div className={styles.bannerWrapper}>
                     <img
-                        src="https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=1200"
+                        src="/images/stock/process.jpg"
                         alt="Reunión técnica colaborativa"
                         className={styles.bannerImage}
                     />

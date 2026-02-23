@@ -51,7 +51,7 @@ const Services = () => {
                     </div>
                     <div className={styles.headerImageWrapper}>
                         <img
-                            src="https://images.pexels.com/photos/1181244/pexels-photo-1181244.jpeg?auto=compress&cs=tinysrgb&w=800"
+                            src="/images/stock/services.jpg"
                             alt="Desarrollo profesional de software"
                             className={styles.headerImage}
                         />

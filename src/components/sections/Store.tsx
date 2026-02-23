@@ -42,7 +42,7 @@ const otherProducts = [
         title: "Control Anestésico",
         description: "Registro clínico completo: signos vitales, medicación y gráficos dinámicos transanestésicos.",
         price: "Bajo Cotización",
-        image: "https://images.pexels.com/photos/40568/medical-appointment-doctor-healthcare-40568.jpeg?auto=compress&cs=tinysrgb&w=600",
+        image: "/images/stock/anesthesia.jpg",
         icon: (
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
@@ -53,7 +53,7 @@ const otherProducts = [
         title: "Gestión de Horas",
         description: "Sistema web para el control, registro y recuperación de horas no laboradas eficientemente.",
         price: "Bajo Cotización",
-        image: "https://images.pexels.com/photos/3183186/pexels-photo-3183186.jpeg?auto=compress&cs=tinysrgb&w=600",
+        image: "/images/stock/time-management.jpg",
         icon: (
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <circle cx="12" cy="12" r="10"></circle>
@@ -65,7 +65,7 @@ const otherProducts = [
         title: "Colección de Plantillas",
         description: "Herramientas de automatización en Excel para finanzas, RRHH y logística corporativa.",
         price: "Desde S/ 45",
-        image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80",
+        image: "/images/stock/templates.jpg",
         icon: (
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
@@ -79,7 +79,7 @@ const otherProducts = [
         title: "Consultoría Senior",
         description: "Asesoría personalizada para optimizar tus procesos y arquitectura de software.",
         price: "Bajo Cotización",
-        image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=600&q=80",
+        image: "/images/stock/consulting.jpg",
         icon: (
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
@@ -185,7 +185,7 @@ const Store = () => {
 
                 <div className={styles.productHero}>
                     <img
-                        src="https://images.pexels.com/photos/101808/pexels-photo-101808.jpeg?auto=compress&cs=tinysrgb&w=1200"
+                        src="/images/stock/easyrent-hero.jpg"
                         alt="Gestión inmobiliaria moderna"
                         className={styles.productHeroImage}
                     />
