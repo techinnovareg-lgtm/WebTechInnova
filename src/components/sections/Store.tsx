@@ -232,6 +232,40 @@ const Store = () => {
                     ))}
                 </div>
 
+                <div className={styles.clientPortal}>
+                    <div className={styles.portalContent}>
+                        <div className={styles.portalHeader}>
+                            <span className={styles.portalBadge}>Área de Clientes</span>
+                            <h3>Portal de Usuario EasyRent</h3>
+                            <p>¿Ya eres cliente? Accede a tu plataforma o solicita asistencia técnica especializada.</p>
+                        </div>
+                        <div className={styles.portalActions}>
+                            <div className={styles.portalCard}>
+                                <div className={styles.portalIcon}>
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                        <polyline points="15 3 22 3 22 10"></polyline>
+                                        <line x1="14" y1="10" x2="22" y2="2"></line>
+                                    </svg>
+                                </div>
+                                <h4>Acceso Web App</h4>
+                                <p>Gestiona tus propiedades desde cualquier dispositivo con nuestra versión en la nube.</p>
+                                <a href="#" className={styles.portalBtn}>Iniciar Sesión</a>
+                            </div>
+                            <div className={styles.portalCard}>
+                                <div className={styles.portalIcon}>
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                                    </svg>
+                                </div>
+                                <h4>Centro de Soporte</h4>
+                                <p>Asistencia técnica señor para instalaciones, backups o actualizaciones personalizadas.</p>
+                                <a href="#contacto" className={styles.portalBtnSecondary}>Contactar Soporte</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <div className={styles.subHeader} style={{ marginTop: '6rem' }}>
                     <h3>Apps y Soluciones Especializadas</h3>
                     <div className={styles.divider}></div>
