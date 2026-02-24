@@ -127,6 +127,29 @@ const paymentLinks = [
     }
 ];
 
+const controlHorasPlans = [
+    {
+        name: "Suscripción Mensual",
+        price: "S/ 15",
+        numericPrice: 15,
+        period: "mensual",
+        description: "Ideal para control inmediato y flexible.",
+        features: ["Registro de días/horas", "Calculadora de recuperación", "Calendario de progreso", "Acceso web global"],
+        cta: "Suscribirse Mensual",
+        recommended: false
+    },
+    {
+        name: "Suscripción Anual",
+        price: "S/ 150",
+        numericPrice: 150,
+        period: "anual",
+        description: "Ahorra 2 meses con el pago anualizado.",
+        features: ["Todo lo del plan mensual", "Historial de periodos", "Archivo de registros", "Soporte prioritario"],
+        cta: "Suscribirse Anual",
+        recommended: true
+    }
+];
+
 const Store = () => {
     const [currency, setCurrency] = useState<'PEN' | 'USD' | 'EUR'>('PEN');
 
@@ -264,6 +287,67 @@ const Store = () => {
                                 <a href="#contacto" className={styles.portalBtnSecondary}>Contactar Soporte</a>
                             </div>
                         </div>
+                    </div>
+                </div>
+
+                <div className={styles.subHeader} style={{ marginTop: '6rem' }}>
+                    <h3>Control de Horas: Gestión de Recuperación</h3>
+                    <div className={styles.divider}></div>
+                </div>
+
+                <div className={styles.productHero}>
+                    <img
+                        src="/images/stock/time-management.jpg"
+                        alt="Control de horas y productividad"
+                        className={styles.productHeroImage}
+                    />
+                    <div className={styles.productHeroOverlay}>
+                        <p className={styles.productDescription}>
+                            Gestiona tus horas no laboradas de forma profesional. Registra días y horas pendientes,
+                            organiza tu recuperación mediante una <strong>calculadora inteligente con calendario</strong> y
+                            mantén un historial detallado de tus periodos. Accede desde cualquier lugar con total
+                            privacidad: solo tú tienes el control de tu información y contraseña.
+                        </p>
+                    </div>
+                </div>
+
+                <div className={styles.easyRentGrid}>
+                    {controlHorasPlans.map((plan, index) => (
+                        <div
+                            key={index}
+                            className={`${styles.planCard} ${plan.recommended ? styles.recommended : ''}`}
+                            style={{ margin: plan.recommended ? '0' : '0 1rem' }}
+                        >
+                            {plan.recommended && <div className={styles.badge}>Más Popular</div>}
+                            <h4 className={styles.planName}>{plan.name}</h4>
+                            <div className={styles.priceInfo}>
+                                <div className={styles.mainPrice}>
+                                    <span className={styles.amount}>
+                                        {formatPrice(
+                                            (plan as any).numericPrice || 0,
+                                            plan.price
+                                        )}
+                                    </span>
+                                    <span className={styles.period}>/ {plan.period}</span>
+                                </div>
+                            </div>
+                            <p className={styles.descriptionText}>{plan.description}</p>
+                            <ul className={styles.featureList}>
+                                {plan.features.map((f, i) => (
+                                    <li key={i}>{f}</li>
+                                ))}
+                            </ul>
+                            <button className={styles.buyBtn}>{plan.cta}</button>
+                        </div>
+                    ))}
+                    <div className={styles.securityInfo}>
+                        <div className={styles.securityIcon}>🔒</div>
+                        <h4>Privacidad y Seguridad</h4>
+                        <p>
+                            El acceso es con tu correo y tú creas tu propia contraseña.
+                            El administrador <strong>no tiene acceso</strong> a tu información personal,
+                            solo a tu correo para gestiones técnicas o reseteo de contraseña.
+                        </p>
                     </div>
                 </div>
 

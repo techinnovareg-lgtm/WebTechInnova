@@ -673,6 +673,35 @@
     }
 }
 
+.securityInfo {
+    background: #f8f9fa;
+    padding: 2.5rem;
+    border-radius: var(--radius-lg);
+    border: 1px dashed var(--primary);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+
+.securityIcon {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.securityInfo h4 {
+    font-size: 1.4rem;
+    color: var(--contrast);
+    margin-bottom: 1rem;
+}
+
+.securityInfo p {
+    color: #666;
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
 .buyBtnLink {
     text-decoration: none;
     text-align: center;
