@@ -130,8 +130,8 @@ const paymentLinks = [
 const controlHorasPlans = [
     {
         name: "Suscripción Mensual",
-        price: "S/ 15",
-        numericPrice: 15,
+        price: "Consultar",
+        numericPrice: 5,
         period: "mensual",
         description: "Ideal para control inmediato y flexible.",
         features: ["Registro de días/horas", "Calculadora de recuperación", "Calendario de progreso", "Acceso web global"],
@@ -140,10 +140,10 @@ const controlHorasPlans = [
     },
     {
         name: "Suscripción Anual",
-        price: "S/ 150",
-        numericPrice: 150,
+        price: "Consultar",
+        numericPrice: 20,
         period: "anual",
-        description: "Ahorra 2 meses con el pago anualizado.",
+        description: "Ahorra significativamente con el pago anualizado.",
         features: ["Todo lo del plan mensual", "Historial de periodos", "Archivo de registros", "Soporte prioritario"],
         cta: "Suscribirse Anual",
         recommended: true
@@ -154,7 +154,7 @@ const Store = () => {
     const [currency, setCurrency] = useState<'PEN' | 'USD' | 'EUR'>('PEN');
 
     const formatPrice = (numericPrice: number, basePrice: string, isHybrid?: boolean, oneTime?: number, monthly?: number) => {
-        if (currency === 'PEN') return basePrice;
+        if (currency === 'PEN' || basePrice === 'Consultar' || basePrice === 'Bajo Cotización') return basePrice;
 
         const rate = currency === 'USD' ? 3.8 : 4.1;
         const symbol = currency === 'USD' ? '$' : '€';
