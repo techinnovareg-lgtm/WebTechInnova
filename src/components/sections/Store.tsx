@@ -37,7 +37,7 @@ const easyRentPlans = [
     }
 ];
 
-const otherProducts = [
+const specializedApps = [
     {
         title: "Control Anestésico",
         description: "Registro clínico completo: signos vitales, medicación y gráficos dinámicos transanestésicos.",
@@ -61,7 +61,10 @@ const otherProducts = [
                 <polyline points="12 6 12 12 16 14"></polyline>
             </svg>
         )
-    },
+    }
+];
+
+const resourceServices = [
     {
         title: "Colección de Plantillas",
         description: "Herramientas de automatización en Excel para finanzas, RRHH y logística corporativa.",
@@ -351,13 +354,13 @@ const Store = () => {
                     </div>
                 </div>
 
-                <div className={styles.subHeader} style={{ marginTop: '6rem' }}>
-                    <h3>Apps y Soluciones Especializadas</h3>
+                <div className={styles.subHeader} style={{ marginTop: '4rem' }}>
+                    <h3>Ecosistema de Apps Especializadas</h3>
                     <div className={styles.divider}></div>
                 </div>
 
                 <div className={styles.othersGrid}>
-                    {otherProducts.map((prod, index) => (
+                    {specializedApps.map((prod, index) => (
                         <div key={index} className={styles.otherCard}>
                             <div className={styles.otherImageWrapper}>
                                 <img src={prod.image as string} alt={prod.title} className={styles.otherCardImage} />
@@ -377,6 +380,30 @@ const Store = () => {
                             ) : (
                                 <button className={styles.viewBtn}>Ver Detalles</button>
                             )}
+                        </div>
+                    ))}
+                </div>
+
+                <div className={styles.subHeader} style={{ marginTop: '4rem' }}>
+                    <h3>Servicios y Recursos Corporativos</h3>
+                    <div className={styles.divider}></div>
+                </div>
+
+                <div className={styles.othersGrid}>
+                    {resourceServices.map((prod, index) => (
+                        <div key={index} className={styles.otherCard}>
+                            <div className={styles.otherImageWrapper}>
+                                <img src={prod.image as string} alt={prod.title} className={styles.otherCardImage} />
+                            </div>
+                            <div className={styles.otherInfo}>
+                                <div className={styles.otherIconTitle}>
+                                    <div className={styles.miniIcon}>{prod.icon}</div>
+                                    <h4>{prod.title}</h4>
+                                </div>
+                                <p>{prod.description}</p>
+                                <span className={styles.otherPrice}>{prod.price}</span>
+                            </div>
+                            <button className={styles.viewBtn}>Ver Detalles</button>
                         </div>
                     ))}
                 </div>
