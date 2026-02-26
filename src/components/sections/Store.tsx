@@ -6,8 +6,8 @@ import styles from './Store.module.css';
 const easyRentPlans = [
     {
         name: "Plan Desktop",
-        price: "S/ 200",
-        numericPrice: 200,
+        price: "S/ 300",
+        numericPrice: 300,
         period: "Pago Único",
         description: "Ideal para gestión local segura y permanente.",
         features: ["Propiedad total", "Sin cuotas mensuales", "Red local offline"],
@@ -16,10 +16,10 @@ const easyRentPlans = [
     },
     {
         name: "Plan Híbrido",
-        price: "S/ 200 + S/ 30",
-        oneTimeNumeric: 200,
-        monthlyNumeric: 30,
-        period: "mensual",
+        price: "S/ 300 + S/ 350",
+        oneTimeNumeric: 300,
+        monthlyNumeric: 350,
+        period: "anual",
         description: "Flexibilidad total con respaldo en la nube.",
         features: ["Software local", "Respaldo en la nube", "Actualizaciones constantes", "Soporte prioritario"],
         cta: "Adquirir Híbrido",
@@ -27,11 +27,11 @@ const easyRentPlans = [
     },
     {
         name: "Plan Cloud",
-        price: "S/ 30",
-        numericPrice: 30,
+        price: "S/ 150",
+        numericPrice: 150,
         period: "mensual",
         description: "Acceso total desde cualquier lugar del mundo.",
-        features: ["Acceso global web", "Sin instalación", "Backups diarios", "Multidispositivo"],
+        features: ["Acceso global web", "Opción anual: S/ 1500", "Backups diarios", "Multidispositivo"],
         cta: "Adquirir Cloud",
         recommended: false
     }
