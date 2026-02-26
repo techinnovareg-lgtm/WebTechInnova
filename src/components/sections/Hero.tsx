@@ -4,6 +4,7 @@ import styles from './Hero.module.css';
 const Hero = () => {
     return (
         <section className={styles.hero} id="inicio">
+            <div className={styles.grain}></div>
             <div className={`container ${styles.container}`}>
                 <div className={styles.content}>
                     <h1 className={styles.title}>
