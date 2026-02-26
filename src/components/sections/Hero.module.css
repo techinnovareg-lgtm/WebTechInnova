@@ -49,88 +49,131 @@
 }
 
 /* Individual Particle Positions & Animations */
+/* Individual Particle Positions & Animations (Higher Intensity) */
 .p1 {
     top: 15%;
     left: 10%;
     animation: floatDrift 25s infinite linear;
-    opacity: 0.04;
+    opacity: 0.16;
 }
 
 .p2 {
     top: 25%;
     left: 80%;
     animation: floatDrift 30s infinite linear reverse;
-    opacity: 0.06;
+    opacity: 0.18;
 }
 
 .p3 {
     top: 65%;
     left: 15%;
     animation: floatDrift 20s infinite linear -5s;
-    opacity: 0.03;
+    opacity: 0.14;
 }
 
 .p4 {
     top: 80%;
     left: 70%;
     animation: floatDrift 35s infinite linear -10s;
-    opacity: 0.05;
+    opacity: 0.20;
 }
 
 .p5 {
     top: 40%;
     left: 50%;
     animation: floatDrift 40s infinite linear -2s;
-    opacity: 0.04;
+    opacity: 0.15;
 }
 
 .p6 {
     top: 10%;
     left: 40%;
     animation: floatDrift 28s infinite linear -15s;
-    opacity: 0.07;
+    opacity: 0.22;
 }
 
 .p7 {
     top: 55%;
     left: 85%;
     animation: floatDrift 22s infinite linear -8s;
-    opacity: 0.04;
+    opacity: 0.16;
 }
 
 .p8 {
     top: 90%;
     left: 20%;
     animation: floatDrift 45s infinite linear -12s;
-    opacity: 0.06;
+    opacity: 0.21;
 }
 
 .p9 {
     top: 30%;
     left: 25%;
     animation: floatDrift 32s infinite linear -4s;
-    opacity: 0.05;
+    opacity: 0.17;
 }
 
 .p10 {
     top: 70%;
     left: 45%;
     animation: floatDrift 27s infinite linear -18s;
-    opacity: 0.03;
+    opacity: 0.13;
 }
 
 .p11 {
     top: 5%;
     left: 90%;
     animation: floatDrift 38s infinite linear -6s;
-    opacity: 0.04;
+    opacity: 0.19;
 }
 
 .p12 {
     top: 45%;
     left: 5%;
     animation: floatDrift 24s infinite linear -21s;
-    opacity: 0.05;
+    opacity: 0.18;
+}
+
+.p13 {
+    top: 20%;
+    left: 60%;
+    animation: floatDrift 29s infinite linear -3s;
+    opacity: 0.15;
+}
+
+.p14 {
+    top: 75%;
+    left: 35%;
+    animation: floatDrift 31s infinite linear reverse -7s;
+    opacity: 0.16;
+}
+
+.p15 {
+    top: 50%;
+    left: 95%;
+    animation: floatDrift 26s infinite linear -11s;
+    opacity: 0.13;
+}
+
+.p16 {
+    top: 12%;
+    left: 2%;
+    animation: floatDrift 33s infinite linear -14s;
+    opacity: 0.16;
+}
+
+.p17 {
+    top: 85%;
+    left: 55%;
+    animation: floatDrift 23s infinite linear -9s;
+    opacity: 0.19;
+}
+
+.p18 {
+    top: 35%;
+    left: 75%;
+    animation: floatDrift 37s infinite linear -20s;
+    opacity: 0.14;
 }
 
 @keyframes floatDrift {

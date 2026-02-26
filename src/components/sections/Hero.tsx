@@ -17,6 +17,12 @@ const Hero = () => {
                 <div className={`${styles.particle} ${styles.hexagon} ${styles.p10}`}></div>
                 <div className={`${styles.particle} ${styles.circle} ${styles.p11}`}></div>
                 <div className={`${styles.particle} ${styles.plus} ${styles.p12}`}></div>
+                <div className={`${styles.particle} ${styles.hexagon} ${styles.p13}`}></div>
+                <div className={`${styles.particle} ${styles.circle} ${styles.p14}`}></div>
+                <div className={`${styles.particle} ${styles.plus} ${styles.p15}`}></div>
+                <div className={`${styles.particle} ${styles.hexagon} ${styles.p16}`}></div>
+                <div className={`${styles.particle} ${styles.circle} ${styles.p17}`}></div>
+                <div className={`${styles.particle} ${styles.plus} ${styles.p18}`}></div>
             </div>
             <div className={`container ${styles.container}`}>
                 <div className={styles.content}>
