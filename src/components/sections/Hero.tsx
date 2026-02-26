@@ -4,7 +4,20 @@ import styles from './Hero.module.css';
 const Hero = () => {
     return (
         <section className={styles.hero} id="inicio">
-            <div className={styles.grain}></div>
+            <div className={styles.particleField}>
+                <div className={`${styles.particle} ${styles.hexagon} ${styles.p1}`}></div>
+                <div className={`${styles.particle} ${styles.circle} ${styles.p2}`}></div>
+                <div className={`${styles.particle} ${styles.plus} ${styles.p3}`}></div>
+                <div className={`${styles.particle} ${styles.hexagon} ${styles.p4}`}></div>
+                <div className={`${styles.particle} ${styles.circle} ${styles.p5}`}></div>
+                <div className={`${styles.particle} ${styles.plus} ${styles.p6}`}></div>
+                <div className={`${styles.particle} ${styles.hexagon} ${styles.p7}`}></div>
+                <div className={`${styles.particle} ${styles.circle} ${styles.p8}`}></div>
+                <div className={`${styles.particle} ${styles.plus} ${styles.p9}`}></div>
+                <div className={`${styles.particle} ${styles.hexagon} ${styles.p10}`}></div>
+                <div className={`${styles.particle} ${styles.circle} ${styles.p11}`}></div>
+                <div className={`${styles.particle} ${styles.plus} ${styles.p12}`}></div>
+            </div>
             <div className={`container ${styles.container}`}>
                 <div className={styles.content}>
                     <h1 className={styles.title}>
