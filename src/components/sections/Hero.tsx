@@ -4,25 +4,14 @@ import styles from './Hero.module.css';
 const Hero = () => {
     return (
         <section className={styles.hero} id="inicio">
-            <div className={styles.particleField}>
-                <div className={`${styles.particle} ${styles.hexagon} ${styles.p1}`}></div>
-                <div className={`${styles.particle} ${styles.circle} ${styles.p2}`}></div>
-                <div className={`${styles.particle} ${styles.plus} ${styles.p3}`}></div>
-                <div className={`${styles.particle} ${styles.hexagon} ${styles.p4}`}></div>
-                <div className={`${styles.particle} ${styles.circle} ${styles.p5}`}></div>
-                <div className={`${styles.particle} ${styles.plus} ${styles.p6}`}></div>
-                <div className={`${styles.particle} ${styles.hexagon} ${styles.p7}`}></div>
-                <div className={`${styles.particle} ${styles.circle} ${styles.p8}`}></div>
-                <div className={`${styles.particle} ${styles.plus} ${styles.p9}`}></div>
-                <div className={`${styles.particle} ${styles.hexagon} ${styles.p10}`}></div>
-                <div className={`${styles.particle} ${styles.circle} ${styles.p11}`}></div>
-                <div className={`${styles.particle} ${styles.plus} ${styles.p12}`}></div>
-                <div className={`${styles.particle} ${styles.hexagon} ${styles.p13}`}></div>
-                <div className={`${styles.particle} ${styles.circle} ${styles.p14}`}></div>
-                <div className={`${styles.particle} ${styles.plus} ${styles.p15}`}></div>
-                <div className={`${styles.particle} ${styles.hexagon} ${styles.p16}`}></div>
-                <div className={`${styles.particle} ${styles.circle} ${styles.p17}`}></div>
-                <div className={`${styles.particle} ${styles.plus} ${styles.p18}`}></div>
+            <div className={styles.neuralPortal}>
+                <div className={styles.portalCore}></div>
+                <div className={styles.portalRing}></div>
+            </div>
+            <div className={styles.dataWave}>
+                {[...Array(20)].map((_, i) => (
+                    <div key={i} className={`${styles.waveDot} ${styles[`d${i + 1}`]}`}></div>
+                ))}
             </div>
             <div className={`container ${styles.container}`}>
                 <div className={styles.content}>

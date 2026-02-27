@@ -2,6 +2,14 @@
     padding: 6rem 0;
     background: white;
     background-image: radial-gradient(circle at 0% 100%, rgba(151, 7, 71, 0.03) 0%, transparent 40%);
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.store.revealed {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .header {
@@ -128,13 +136,14 @@
     border: 1px solid var(--neutral-gray);
     display: flex;
     flex-direction: column;
-    transition: all 0.4s ease;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
 }
 
 .planCard:hover {
     transform: translateY(-10px);
     box-shadow: var(--shadow-medium);
+    border-color: var(--primary);
 }
 
 .recommended {

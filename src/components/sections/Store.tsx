@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from 'react';
+import { useReveal } from '@/hooks/useReveal';
 import styles from './Store.module.css';
 
 const easyRentPlans = [
@@ -155,6 +156,7 @@ const controlHorasPlans = [
 
 const Store = () => {
     const [currency, setCurrency] = useState<'PEN' | 'USD' | 'EUR'>('PEN');
+    const { setRef, isVisible } = useReveal(0.05);
 
     const formatPrice = (numericPrice: number, basePrice: string, isHybrid?: boolean, oneTime?: number, monthly?: number) => {
         if (currency === 'PEN' || basePrice === 'Consultar' || basePrice === 'Bajo Cotización') return basePrice;
@@ -170,7 +172,7 @@ const Store = () => {
     };
 
     return (
-        <section className={styles.store} id="tienda">
+        <section className={`${styles.store} ${isVisible ? styles.revealed : ''}`} id="tienda" ref={setRef}>
             <div className={`container ${styles.container}`}>
                 <div className={styles.header}>
                     <h2 className={styles.title}>Nuestra Tienda</h2>
@@ -277,7 +279,7 @@ const Store = () => {
                                 </div>
                                 <h4>Acceso Web App</h4>
                                 <p>Gestiona tus propiedades desde cualquier dispositivo con nuestra versión en la nube.</p>
-                                <a href="#" className={styles.portalBtn}>Iniciar Sesión</a>
+                                <a href="https://easy-rent-psi.vercel.app/" className={styles.portalBtn}>Iniciar Sesión</a>
                             </div>
                             <div className={styles.portalCard}>
                                 <div className={styles.portalIcon}>
