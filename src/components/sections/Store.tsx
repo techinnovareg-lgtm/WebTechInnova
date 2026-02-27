@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from 'react';
-import { useReveal } from '@/hooks/useReveal';
+import useReveal from '@/hooks/useReveal';
 import styles from './Store.module.css';
 
 const easyRentPlans = [

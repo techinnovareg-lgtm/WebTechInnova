@@ -1,6 +1,8 @@
+"use client";
+
 import { useEffect, useState } from 'react';
 
-export const useReveal = (threshold = 0.1) => {
+const useReveal = (threshold = 0.1) => {
     const [ref, setRef] = useState<HTMLElement | null>(null);
     const [isVisible, setIsVisible] = useState(false);
 
@@ -23,3 +25,5 @@ export const useReveal = (threshold = 0.1) => {
 
     return { setRef, isVisible };
 };
+
+export default useReveal;
