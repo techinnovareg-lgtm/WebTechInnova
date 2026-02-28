@@ -174,6 +174,11 @@ const Store = () => {
 
     return (
         <section className={`${styles.store} ${isVisible ? styles.revealed : ''}`} id="tienda" ref={setRef}>
+            <div className={styles.techBackground}>
+                <div className={styles.techGrid}></div>
+                <div className={styles.techGlow}></div>
+                <div className={styles.techGlow2}></div>
+            </div>
             <div className={`container ${styles.container}`}>
                 <div className={styles.header}>
                     <h2 className={styles.title}>Nuestra Tienda</h2>
@@ -233,15 +238,15 @@ const Store = () => {
                                 <div className={styles.imageGlow}></div>
                             </div>
                             <div className={styles.showcaseText}>
-                                <p className={styles.productDescription}>
-                                    <strong>Software de gestión integral</strong> diseñado para la administración profesional de propiedades.
-                                    Optimiza alquileres, contratos, inquilinos e ingresos con una interfaz moderna y ágil.
-                                </p>
                                 <div className={styles.productBadges}>
-                                    <span className={styles.prodBadge}>Escritorio</span>
-                                    <span className={styles.prodBadge}>Web</span>
-                                    <span className={styles.prodBadge}>Híbrido</span>
+                                    <span className={styles.prodBadge}>Multi-Platform</span>
+                                    <span className={styles.prodBadge}>SSL Secure</span>
+                                    <span className={styles.prodBadge}>Cloud Ready</span>
                                 </div>
+                                <p className={styles.productDescription}>
+                                    Simplifica la administración de tus propiedades con una herramienta diseñada para el mundo real.
+                                    Gestiona contratos, inquilinos y pagos con <strong>precisión quirúrgica</strong> y desde cualquier lugar.
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -397,7 +402,7 @@ const Store = () => {
                         <div
                             key={index}
                             className={`${styles.planCard} ${plan.recommended ? styles.recommended : ''}`}
-                            style={{ margin: plan.recommended ? '0' : '0 1rem' }}
+                            style={{ margin: plan.recommended ? '0' : '0 1rem', animationDelay: `${index * 0.1}s` }}
                         >
                             {plan.recommended && <div className={styles.badge}>Más Popular</div>}
                             <h4 className={styles.planName}>{plan.name}</h4>
