@@ -11,7 +11,7 @@ const easyRentPlans = [
         numericPrice: 300,
         period: "Pago Único",
         description: "Ideal para gestión local segura y permanente.",
-        features: ["Propiedad total", "Sin cuotas mensuales", "Red local offline"],
+        features: ["Propiedad total", "Sin cuotas mensuales", "Red local offline", "Soporte 24/7 WhatsApp"],
         cta: "Adquirir Desktop",
         recommended: false
     },
@@ -22,7 +22,7 @@ const easyRentPlans = [
         monthlyNumeric: 350,
         period: "anual",
         description: "Flexibilidad total con respaldo en la nube.",
-        features: ["Software local", "Respaldo en la nube", "Actualizaciones constantes", "Soporte prioritario"],
+        features: ["Software local", "Respaldo en la nube", "Actualizaciones", "Soporte 24/7 WhatsApp"],
         cta: "Adquirir Híbrido",
         recommended: true
     },
@@ -32,7 +32,7 @@ const easyRentPlans = [
         numericPrice: 150,
         period: "mensual",
         description: "Acceso total desde cualquier lugar del mundo.",
-        features: ["Acceso global web", "Opción anual: S/ 1500", "Backups diarios", "Multidispositivo"],
+        features: ["Acceso global web", "Respaldos diarios", "Multidispositivo", "Soporte 24/7 WhatsApp"],
         cta: "Adquirir Cloud",
         recommended: false
     }
@@ -138,7 +138,7 @@ const controlHorasPlans = [
         numericPrice: 5,
         period: "mensual",
         description: "Ideal para control inmediato y flexible.",
-        features: ["Registro de días/horas", "Calculadora de recuperación", "Calendario de progreso", "Acceso web global"],
+        features: ["Registro de días/horas", "Calculadora recovery", "Calendario progreso", "Soporte 24/7 WhatsApp"],
         cta: "Suscribirse Mensual",
         recommended: false
     },
@@ -148,7 +148,7 @@ const controlHorasPlans = [
         numericPrice: 20,
         period: "anual",
         description: "Ahorra significativamente con el pago anualizado.",
-        features: ["Todo lo del plan mensual", "Historial de periodos", "Archivo de registros", "Soporte prioritario"],
+        features: ["Historial de periodos", "Archivo de registros", "Acceso web global", "Soporte 24/7 WhatsApp"],
         cta: "Suscribirse Anual",
         recommended: true
     }
@@ -156,6 +156,7 @@ const controlHorasPlans = [
 
 const Store = () => {
     const [currency, setCurrency] = useState<'PEN' | 'USD' | 'EUR'>('PEN');
+    const [showSupportModal, setShowSupportModal] = useState(false);
     const { setRef, isVisible } = useReveal(0.05);
 
     const formatPrice = (numericPrice: number, basePrice: string, isHybrid?: boolean, oneTime?: number, monthly?: number) => {
@@ -297,7 +298,7 @@ const Store = () => {
                                 </div>
                                 <h4>Acceso Web App</h4>
                                 <p>Gestiona tus propiedades desde cualquier dispositivo con nuestra versión en la nube.</p>
-                                <a href="https://easy-rent-psi.vercel.app/" className={styles.portalBtn}>Iniciar Sesión</a>
+                                <a href="https://easy-rent-psi.vercel.app/" target="_blank" rel="noopener noreferrer" className={styles.portalBtn}>Iniciar Sesión</a>
                             </div>
                             <div className={styles.portalCard}>
                                 <div className={styles.portalIcon}>
@@ -307,10 +308,56 @@ const Store = () => {
                                 </div>
                                 <h4>Centro de Soporte</h4>
                                 <p>Asistencia técnica señor para instalaciones, backups o actualizaciones personalizadas.</p>
-                                <a href="#contacto" className={styles.portalBtnSecondary}>Contactar Soporte</a>
+                                <button
+                                    onClick={() => setShowSupportModal(true)}
+                                    className={styles.portalBtnSecondary}
+                                >
+                                    Contactar Soporte
+                                </button>
                             </div>
                         </div>
                     </div>
+
+                    {showSupportModal && (
+                        <div className={styles.modalOverlay} onClick={() => setShowSupportModal(false)}>
+                            <div className={styles.supportModal} onClick={e => e.stopPropagation()}>
+                                <button className={styles.closeModal} onClick={() => setShowSupportModal(false)}>×</button>
+                                <h3>Canales de Soporte</h3>
+                                <div className={styles.divider}></div>
+                                <p>Elige el medio de tu preferencia para recibir asistencia inmediata:</p>
+                                <div className={styles.supportOptions}>
+                                    <a
+                                        href="https://wa.me/51947515529?text=Hola,%20necesito%20soporte%20para%20EasyRent"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className={styles.supportChoice}
+                                    >
+                                        <div className={styles.choiceIcon} style={{ background: '#25D366' }}>
+                                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.414 0 .004 5.412 0 12.049c0 2.123.555 4.195 1.608 6.037L0 24l6.105-1.602a11.832 11.832 0 005.94 1.6h.005c6.634 0 12.044-5.413 12.048-12.051a11.75 11.75 0 00-3.526-8.528z" />
+                                            </svg>
+                                        </div>
+                                        <div className={styles.choiceText}>
+                                            <span>WhatsApp</span>
+                                            <p>Asistencia directa y fluida</p>
+                                        </div>
+                                    </a>
+                                    <a
+                                        href="mailto:soporte@techinnova.tech?subject=Soporte%20EasyRent"
+                                        className={styles.supportChoice}
+                                    >
+                                        <div className={styles.choiceIcon} style={{ background: 'var(--primary)' }}>
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                                        </div>
+                                        <div className={styles.choiceText}>
+                                            <span>Correo Electrónico</span>
+                                            <p>Asunto: Soporte EasyRent</p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    )}
                 </div>
 
                 <div className={styles.subHeader} style={{ marginTop: '6rem' }}>
