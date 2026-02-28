@@ -22,13 +22,12 @@ const Hero = () => {
                         Consultoría Senior y Desarrollo Full-Stack. Transformamos procesos complejos en soluciones simples, escalables y orientadas a resultados.
                     </p>
                     <div className={styles.actions}>
-                        <Link href="#servicios" className={styles.primaryBtn}>
+                        <Link href="/#servicios" className={styles.primaryBtn}>
                             Nuestras Soluciones
                         </Link>
                         <Link href="/tienda" className={styles.secondaryBtn}>
                             Explorar Tienda
                         </Link>
-
                     </div>
                 </div>
 
