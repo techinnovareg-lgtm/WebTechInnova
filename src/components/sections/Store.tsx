@@ -360,24 +360,35 @@ const Store = () => {
                     )}
                 </div>
 
-                <div className={styles.subHeader} style={{ marginTop: '6rem' }}>
-                    <h3>Control de Horas: Gestión de Recuperación</h3>
-                    <div className={styles.divider}></div>
-                </div>
+                <div className={styles.timeManagementShowcase}>
+                    <div className={styles.showcaseHeader}>
+                        <div className={styles.showcaseTitle}>
+                            <h3 style={{ color: 'var(--contrast)' }}>Control de Horas: Gestión de Recuperación</h3>
+                            <div className={styles.divider} style={{ height: '4px', width: '80px', background: 'var(--primary)', borderRadius: '100px', margin: '0.5rem 0' }}></div>
+                        </div>
+                    </div>
 
-                <div className={styles.productHero}>
-                    <img
-                        src="/images/stock/time-management.jpg"
-                        alt="Control de horas y productividad"
-                        className={styles.productHeroImage}
-                    />
-                    <div className={styles.productHeroOverlay}>
-                        <p className={styles.productDescription}>
-                            Gestiona tus horas no laboradas de forma profesional. Registra días y horas pendientes,
-                            organiza tu recuperación mediante una <strong>calculadora inteligente con calendario</strong> y
-                            mantén un historial detallado de tus periodos. Accede desde cualquier lugar con total
-                            privacidad: solo tú tienes el control de tu información y contraseña.
-                        </p>
+                    <div className={styles.showcaseContent}>
+                        <div className={styles.showcaseImageWrapper}>
+                            <img
+                                src="/images/stock/time-management.jpg"
+                                alt="Control de horas y productividad"
+                                className={styles.showcaseImage}
+                            />
+                            <div className={styles.imageGlow} style={{ background: 'linear-gradient(135deg, rgba(151, 7, 71, 0.15), transparent)' }}></div>
+                        </div>
+                        <div className={styles.showcaseText}>
+                            <p className={styles.productDescription}>
+                                Gestiona tus horas no laboradas de forma profesional. Registra días y horas pendientes,
+                                organiza tu recuperación mediante una <strong>calculadora inteligente con calendario</strong> y
+                                mantén un historial detallado de tus periodos.
+                            </p>
+                            <div className={styles.productBadges}>
+                                <span className={styles.timeBadge}>Registro Web</span>
+                                <span className={styles.timeBadge}>Calculadora Recovery</span>
+                                <span className={styles.timeBadge}>Seguridad Total</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
 

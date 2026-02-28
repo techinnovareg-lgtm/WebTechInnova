@@ -9,7 +9,8 @@
 
 .store.revealed {
     opacity: 1;
-    transform: translateY(0);
+    transform: none;
+    /* Changed from translateY(0) to avoid fixed positioning issues */
 }
 
 .header {
@@ -87,12 +88,18 @@
     margin-top: 4rem;
 }
 
-.easyRentShowcase {
+.easyRentShowcase,
+.timeManagementShowcase {
     background: rgba(0, 166, 81, 0.03);
     border-radius: 32px;
     padding: 4rem;
     margin-bottom: 5rem;
     border: 1px solid rgba(0, 166, 81, 0.1);
+}
+
+.timeManagementShowcase {
+    background: rgba(151, 7, 71, 0.03);
+    border-color: rgba(151, 7, 71, 0.1);
 }
 
 .showcaseHeader {
@@ -179,6 +186,17 @@
     font-weight: 700;
     border: 1px solid rgba(0, 166, 81, 0.2);
     box-shadow: 0 4px 12px rgba(0, 166, 81, 0.08);
+}
+
+.timeBadge {
+    padding: 0.75rem 1.5rem;
+    background: white;
+    color: var(--primary);
+    border-radius: 100px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    border: 1px solid rgba(151, 7, 71, 0.2);
+    box-shadow: 0 4px 12px rgba(151, 7, 71, 0.08);
 }
 
 
@@ -854,11 +872,12 @@
     position: fixed;
     top: 0;
     left: 0;
-    right: 0;
-    bottom: 0;
+    width: 100vw;
+    height: 100vh;
     background: rgba(0, 0, 0, 0.85);
     backdrop-filter: blur(12px);
-    z-index: 1000;
+    -webkit-backdrop-filter: blur(12px);
+    z-index: 9999;
     display: flex;
     align-items: center;
     justify-content: center;
