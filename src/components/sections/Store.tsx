@@ -187,78 +187,96 @@ const Store = () => {
                     </div>
                 </div>
 
-                <div className={styles.subHeader}>
-                    <h3>EasyRent: Gestión Inmobiliaria</h3>
-                    <div className={styles.divider}></div>
-                    <div className={styles.currencySwitcher}>
-                        <button
-                            className={`${styles.currencyBtn} ${currency === 'PEN' ? styles.activeCurrency : ''}`}
-                            onClick={() => setCurrency('PEN')}
-                        >
-                            Soles (S/)
-                        </button>
-                        <button
-                            className={`${styles.currencyBtn} ${currency === 'USD' ? styles.activeCurrency : ''}`}
-                            onClick={() => setCurrency('USD')}
-                        >
-                            Dólares ($)
-                        </button>
-                        <button
-                            className={`${styles.currencyBtn} ${currency === 'EUR' ? styles.activeCurrency : ''}`}
-                            onClick={() => setCurrency('EUR')}
-                        >
-                            Euros (€)
-                        </button>
+                <div className={styles.easyRentSection}>
+                    <div className={styles.subHeader}>
+                        <h3>EasyRent: Gestión Inmobiliaria</h3>
+                        <div className={styles.divider}></div>
+                        <div className={styles.currencySwitcher}>
+                            <button
+                                className={`${styles.currencyBtn} ${currency === 'PEN' ? styles.activeCurrency : ''}`}
+                                onClick={() => setCurrency('PEN')}
+                            >
+                                Soles (S/)
+                            </button>
+                            <button
+                                className={`${styles.currencyBtn} ${currency === 'USD' ? styles.activeCurrency : ''}`}
+                                onClick={() => setCurrency('USD')}
+                            >
+                                Dólares ($)
+                            </button>
+                            <button
+                                className={`${styles.currencyBtn} ${currency === 'EUR' ? styles.activeCurrency : ''}`}
+                                onClick={() => setCurrency('EUR')}
+                            >
+                                Euros (€)
+                            </button>
+                        </div>
                     </div>
-                </div>
 
-                <div className={styles.productHero}>
-                    <img
-                        src="/images/stock/easyrent-hero.jpg"
-                        alt="Gestión inmobiliaria moderna"
-                        className={styles.productHeroImage}
-                    />
-                    <div className={styles.productHeroOverlay}>
-                        <p className={styles.productDescription}>
-                            EasyRent es una solución integral diseñada para la administración profesional de propiedades,
-                            disponible en modalidades <strong>escritorio, web o híbrida</strong>. Optimiza la gestión de
-                            alquileres, contratos, inquilinos, ingresos y egresos con reportes detallados y contactos,
-                            todo bajo una interfaz moderna, ágil y fácil de usar.
-                        </p>
-                    </div>
-                </div>
+                    <div className={styles.easyRentShowcase}>
+                        <div className={styles.showcaseHeader}>
+                            <img src="/images/easyrent/logo.png" alt="EasyRent Logo" className={styles.productLogo} />
+                            <div className={styles.showcaseTitle}>
+                                <h3>Gestión Inmobiliaria Inteligente</h3>
+                                <div className={styles.greenDivider}></div>
+                            </div>
+                        </div>
 
-                <div className={styles.easyRentGrid}>
-                    {easyRentPlans.map((plan, index) => (
-                        <div
-                            key={index}
-                            className={`${styles.planCard} ${plan.recommended ? styles.recommended : ''}`}
-                        >
-                            {plan.recommended && <div className={styles.badge}>Recomendado</div>}
-                            <h4 className={styles.planName}>{plan.name}</h4>
-                            <div className={styles.priceInfo}>
-                                <div className={styles.mainPrice}>
-                                    <span className={styles.amount}>
-                                        {formatPrice(
-                                            (plan as any).numericPrice || 0,
-                                            plan.price,
-                                            plan.name === "Plan Híbrido",
-                                            (plan as any).oneTimeNumeric,
-                                            (plan as any).monthlyNumeric
-                                        )}
-                                    </span>
-                                    <span className={styles.period}>/ {plan.period}</span>
+                        <div className={styles.showcaseContent}>
+                            <div className={styles.showcaseImageWrapper}>
+                                <img
+                                    src="/images/easyrent/banner.png"
+                                    alt="EasyRent Platform Showcase"
+                                    className={styles.showcaseImage}
+                                />
+                                <div className={styles.imageGlow}></div>
+                            </div>
+                            <div className={styles.showcaseText}>
+                                <p className={styles.productDescription}>
+                                    <strong>Software de gestión integral</strong> diseñado para la administración profesional de propiedades.
+                                    Optimiza alquileres, contratos, inquilinos e ingresos con una interfaz moderna y ágil.
+                                </p>
+                                <div className={styles.productBadges}>
+                                    <span className={styles.prodBadge}>Escritorio</span>
+                                    <span className={styles.prodBadge}>Web</span>
+                                    <span className={styles.prodBadge}>Híbrido</span>
                                 </div>
                             </div>
-                            <p className={styles.descriptionText}>{plan.description}</p>
-                            <ul className={styles.featureList}>
-                                {plan.features.map((f, i) => (
-                                    <li key={i}>{f}</li>
-                                ))}
-                            </ul>
-                            <button className={styles.buyBtn}>{plan.cta}</button>
                         </div>
-                    ))}
+                    </div>
+
+                    <div className={styles.easyRentGrid}>
+                        {easyRentPlans.map((plan, index) => (
+                            <div
+                                key={index}
+                                className={`${styles.planCard} ${plan.recommended ? styles.recommended : ''}`}
+                            >
+                                {plan.recommended && <div className={styles.badge}>Recomendado</div>}
+                                <h4 className={styles.planName}>{plan.name}</h4>
+                                <div className={styles.priceInfo}>
+                                    <div className={styles.mainPrice}>
+                                        <span className={styles.amount}>
+                                            {formatPrice(
+                                                (plan as any).numericPrice || 0,
+                                                plan.price,
+                                                plan.name === "Plan Híbrido",
+                                                (plan as any).oneTimeNumeric,
+                                                (plan as any).monthlyNumeric
+                                            )}
+                                        </span>
+                                        <span className={styles.period}>/ {plan.period}</span>
+                                    </div>
+                                </div>
+                                <p className={styles.descriptionText}>{plan.description}</p>
+                                <ul className={styles.featureList}>
+                                    {plan.features.map((f, i) => (
+                                        <li key={i}>{f}</li>
+                                    ))}
+                                </ul>
+                                <button className={styles.buyBtn}>{plan.cta}</button>
+                            </div>
+                        ))}
+                    </div>
                 </div>
 
                 <div className={styles.clientPortal}>
