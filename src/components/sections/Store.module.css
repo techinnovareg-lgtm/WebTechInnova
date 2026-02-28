@@ -513,13 +513,13 @@
 
 .clientPortal {
     margin: 6rem 0;
-    background: linear-gradient(135deg, #0a0104 0%, #20020f 100%);
+    background: linear-gradient(135deg, #020a06 0%, #0a1f14 100%);
     border-radius: var(--radius-lg);
     padding: 6rem 4rem;
     position: relative;
     overflow: hidden;
     color: white;
-    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
 }
 
 .clientPortal::before {
@@ -529,7 +529,7 @@
     right: -10%;
     width: 600px;
     height: 600px;
-    background: radial-gradient(circle, rgba(151, 7, 71, 0.25) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(0, 166, 81, 0.15) 0%, transparent 70%);
     z-index: 1;
 }
 
@@ -546,16 +546,16 @@
 .portalBadge {
     display: inline-block;
     padding: 0.5rem 1.2rem;
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(0, 166, 81, 0.1);
     backdrop-filter: blur(5px);
     border-radius: 50px;
     font-size: 0.85rem;
     font-weight: 700;
-    color: var(--accent);
+    color: #00ff85;
     text-transform: uppercase;
     letter-spacing: 1px;
     margin-bottom: 1.5rem;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(0, 166, 81, 0.2);
 }
 
 .portalHeader h3 {
@@ -593,14 +593,14 @@
 .portalCard:hover {
     transform: translateY(-10px);
     background: rgba(255, 255, 255, 0.06);
-    border-color: var(--primary);
+    border-color: #00a651;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
 }
 
 .portalIcon {
     width: 54px;
     height: 54px;
-    background: var(--primary);
+    background: #00a651;
     border-radius: 16px;
     display: flex;
     align-items: center;
@@ -628,7 +628,7 @@
 }
 
 .portalBtn {
-    background: var(--primary);
+    background: #00a651;
     color: white;
     padding: 1rem 2rem;
     border-radius: 12px;
@@ -638,8 +638,8 @@
 }
 
 .portalBtn:hover {
-    background: var(--accent);
-    box-shadow: 0 10px 20px rgba(151, 7, 71, 0.3);
+    background: #00713d;
+    box-shadow: 0 10px 20px rgba(0, 166, 81, 0.3);
 }
 
 .portalBtnSecondary {
