@@ -181,7 +181,7 @@ const Store = () => {
             </div>
             <div className={`container ${styles.container}`}>
                 <div className={styles.header}>
-                    <h2 className={styles.title}>Nuestra Tienda</h2>
+                    <h2 className={styles.title}>Tecnología de Vanguardia</h2>
                     <p className={styles.subtitle}>Soluciones digitales listas para potenciar tu productividad y control.</p>
                 </div>
 
