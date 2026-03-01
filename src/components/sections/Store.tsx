@@ -49,6 +49,19 @@ const specializedApps = [
                 <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
             </svg>
         )
+    },
+    {
+        title: "Gestión de Horas",
+        description: "Sistema web para el control, registro y recuperación de horas no laboradas eficientemente.",
+        price: "Bajo Cotización",
+        image: "/images/stock/time-management.jpg",
+        url: "https://techinnovareg-lgtm.github.io/control-horas-app",
+        icon: (
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+        )
     }
 ];
 
@@ -355,7 +368,7 @@ const Store = () => {
                 <div className={styles.timeManagementShowcase}>
                     <div className={styles.showcaseHeader}>
                         <div className={styles.showcaseTitle}>
-                            <h3>Labora: Gestión de Tiempo y Recuperación</h3>
+                            <h3 style={{ color: 'var(--contrast)' }}>Control de Horas: Gestión de Recuperación</h3>
                             <div className={styles.divider} style={{ height: '4px', width: '80px', background: 'var(--primary)', borderRadius: '100px', margin: '0.5rem 0' }}></div>
                         </div>
                     </div>
@@ -364,7 +377,7 @@ const Store = () => {
                         <div className={styles.showcaseImageWrapper}>
                             <img
                                 src="/images/stock/time-management.jpg"
-                                alt="Labora: Gestión de tiempo"
+                                alt="Control de horas y productividad"
                                 className={styles.showcaseImage}
                             />
                             <div className={styles.imageGlow} style={{ background: 'linear-gradient(135deg, rgba(151, 7, 71, 0.15), transparent)' }}></div>
@@ -443,8 +456,8 @@ const Store = () => {
                                 <p>{prod.description}</p>
                                 <span className={styles.otherPrice}>{prod.price}</span>
                             </div>
-                            {(prod as any).url ? (
-                                <a href={(prod as any).url} target="_blank" rel="noopener noreferrer" className={`${styles.viewBtn} ${styles.buyBtnLink}`}>
+                            {prod.url ? (
+                                <a href={prod.url} target="_blank" rel="noopener noreferrer" className={`${styles.viewBtn} ${styles.buyBtnLink}`}>
                                     Ver Aplicativo
                                 </a>
                             ) : (

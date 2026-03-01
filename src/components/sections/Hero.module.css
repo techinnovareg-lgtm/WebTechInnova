@@ -491,8 +491,6 @@
     .actions {
         flex-direction: column;
         width: 100%;
-        gap: 1.2rem;
-        align-items: center;
     }
 
     .primaryBtn,
