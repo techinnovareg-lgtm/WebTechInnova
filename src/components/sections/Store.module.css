@@ -32,10 +32,10 @@
     right: 0;
     bottom: 0;
     background-image:
-        linear-gradient(rgba(151, 7, 71, 0.12) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(151, 7, 71, 0.12) 1px, transparent 1px);
+        linear-gradient(rgba(151, 7, 71, 0.2) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(151, 7, 71, 0.2) 1px, transparent 1px);
     background-size: 80px 80px;
-    mask-image: radial-gradient(circle at center, black, transparent 85%);
+    mask-image: radial-gradient(circle at center, black, transparent 80%);
 }
 
 .techGlow,
@@ -43,11 +43,11 @@
     position: absolute;
     width: 800px;
     height: 800px;
-    background: radial-gradient(circle, rgba(151, 7, 71, 0.15) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(151, 7, 71, 0.2) 0%, transparent 70%);
     filter: blur(100px);
     pointer-events: none;
     z-index: 0;
-    animation: pulseGlow 10s infinite alternate ease-in-out;
+    animation: pulseGlow 8s infinite alternate ease-in-out;
 }
 
 @keyframes pulseGlow {
@@ -272,14 +272,6 @@
     line-height: 1.8;
 }
 
-.productB.actions {
-    display: flex;
-    gap: 1.5rem;
-    position: relative;
-    z-index: 11;
-    flex-wrap: wrap;
-    margin-top: 2rem;
-}
 
 .productBadges {
     display: flex;
@@ -357,9 +349,11 @@
 }
 
 .planCard:hover {
-    transform: translateY(-12px);
-    border-color: rgba(151, 7, 71, 0.2);
-    box-shadow: 0 30px 60px rgba(151, 7, 71, 0.1);
+    transform: translateY(-20px) scale(1.02);
+    border-color: rgba(151, 7, 71, 0.4);
+    box-shadow:
+        0 40px 80px rgba(151, 7, 71, 0.15),
+        0 0 20px rgba(151, 7, 71, 0.05);
 }
 
 .planCard:hover::after {
@@ -939,13 +933,6 @@
         gap: 1.5rem;
     }
 
-    .internationalB.actions {
-        flex-direction: column;
-        width: 100%;
-        max-width: 400px;
-        margin: 0 auto;
-        gap: 1rem;
-    }
 
     .paymentGrid {
         grid-template-columns: repeat(2, 1fr);
