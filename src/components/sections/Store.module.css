@@ -1,11 +1,12 @@
 .store {
     padding: 10rem 0;
-    background: #ffffff;
+    background: radial-gradient(circle at 50% 50%, #1a030d 0%, #0a0104 100%);
     position: relative;
     overflow: hidden;
     opacity: 0;
     transform: translateY(30px);
     transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+    color: white;
 }
 
 .store.revealed {
@@ -32,10 +33,11 @@
     right: 0;
     bottom: 0;
     background-image:
-        linear-gradient(rgba(151, 7, 71, 0.2) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(151, 7, 71, 0.2) 1px, transparent 1px);
+        linear-gradient(rgba(151, 7, 71, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(151, 7, 71, 0.05) 1px, transparent 1px);
     background-size: 80px 80px;
     mask-image: radial-gradient(circle at center, black, transparent 80%);
+    opacity: 0.3;
 }
 
 .techGlow,
@@ -122,10 +124,11 @@
 
 .subtitle {
     font-size: 1.4rem;
-    color: #555;
+    color: rgba(255, 255, 255, 0.7);
     max-width: 600px;
     margin: 0 auto;
-    font-weight: 400;
+    font-weight: 300;
+    letter-spacing: 0.02em;
 }
 
 .subHeader {
@@ -139,7 +142,7 @@
 .subHeader h3 {
     font-size: 2rem;
     font-weight: 700;
-    color: var(--contrast);
+    color: white;
     white-space: nowrap;
 }
 
@@ -151,17 +154,17 @@
 
 .currencySwitcher {
     display: flex;
-    background: #f5f5f7;
+    background: rgba(255, 255, 255, 0.05);
     padding: 4px;
     border-radius: 12px;
-    border: 1px solid #eee;
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .currencyBtn {
     padding: 0.6rem 1.2rem;
     border: none;
     background: transparent;
-    color: #666;
+    color: rgba(255, 255, 255, 0.6);
     font-size: 0.9rem;
     font-weight: 700;
     cursor: pointer;
@@ -170,13 +173,13 @@
 }
 
 .currencyBtn:hover {
-    color: var(--primary);
+    color: white;
 }
 
 .activeCurrency {
-    background: white;
-    color: var(--primary);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    background: var(--primary);
+    color: white;
+    box-shadow: 0 4px 15px rgba(151, 7, 71, 0.3);
 }
 
 .easyRentSection {
@@ -185,16 +188,18 @@
 
 .easyRentShowcase,
 .timeManagementShowcase {
-    background: rgba(0, 166, 81, 0.03);
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     border-radius: 32px;
     padding: 4rem;
     margin-bottom: 5rem;
-    border: 1px solid rgba(0, 166, 81, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .timeManagementShowcase {
-    background: rgba(151, 7, 71, 0.03);
-    border-color: rgba(151, 7, 71, 0.1);
+    background: rgba(151, 7, 71, 0.02);
+    border-color: rgba(151, 7, 71, 0.08);
 }
 
 .showcaseHeader {
@@ -320,10 +325,10 @@
 }
 
 .planCard {
-    background: rgba(255, 255, 255, 0.7);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(0, 0, 0, 0.05);
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 32px;
     padding: 3.5rem 2.5rem;
     display: flex;
@@ -342,7 +347,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(135deg, rgba(151, 7, 71, 0.05), transparent);
+    background: radial-gradient(circle at top right, rgba(151, 7, 71, 0.1), transparent 70%);
     opacity: 0;
     transition: opacity 0.5s ease;
     z-index: -1;
@@ -352,8 +357,8 @@
     transform: translateY(-20px) scale(1.02);
     border-color: rgba(151, 7, 71, 0.4);
     box-shadow:
-        0 40px 80px rgba(151, 7, 71, 0.15),
-        0 0 20px rgba(151, 7, 71, 0.05);
+        0 40px 80px rgba(0, 0, 0, 0.6),
+        0 0 20px rgba(151, 7, 71, 0.2);
 }
 
 .planCard:hover::after {
@@ -364,12 +369,12 @@
     border: 2px solid var(--primary);
     transform: scale(1.05);
     z-index: 2;
-    background: white;
-    box-shadow: 0 20px 50px rgba(151, 7, 71, 0.12);
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
 }
 
 .recommended:hover {
-    transform: scale(1.05) translateY(-12px);
+    transform: scale(1.05) translateY(-20px);
 }
 
 .badge {
@@ -400,16 +405,17 @@
 .amount {
     font-size: 2.8rem;
     font-weight: 900;
-    color: var(--primary);
+    color: #ff3385;
+    /* Brighter magenta for dark mode */
 }
 
 .period {
-    color: #888;
+    color: rgba(255, 255, 255, 0.5);
     margin-left: 0.5rem;
 }
 
 .descriptionText {
-    color: #666;
+    color: rgba(255, 255, 255, 0.6);
     text-align: center;
     margin-bottom: 2.5rem;
     font-size: 0.95rem;
@@ -424,17 +430,18 @@
 
 .featureList li {
     padding: 0.8rem 0;
-    color: #444;
+    color: rgba(255, 255, 255, 0.8);
     font-size: 1.05rem;
     display: flex;
     align-items: center;
     gap: 1rem;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .featureList li::before {
     content: "✓";
-    color: var(--primary);
+    color: #00ff85;
+    /* EasyRent Green for checkmarks */
     font-weight: 900;
 }
 
@@ -462,18 +469,21 @@
 }
 
 .otherCard {
-    background: white;
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     border-radius: var(--radius-lg);
     display: flex;
     flex-direction: column;
     overflow: hidden;
-    border: 1px solid var(--neutral-gray);
+    border: 1px solid rgba(255, 255, 255, 0.08);
     transition: all 0.3s ease;
 }
 
 .otherCard:hover {
-    box-shadow: var(--shadow-medium);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
     transform: translateY(-5px);
+    border-color: var(--primary);
 }
 
 .otherImageWrapper {
@@ -518,13 +528,13 @@
 
 .otherInfo h4 {
     font-size: 1.4rem;
-    margin-bottom: 0;
-    color: var(--contrast);
+    margin-bottom: 0.5rem;
+    color: white;
 }
 
 .otherInfo p {
     font-size: 0.95rem;
-    color: #666;
+    color: rgba(255, 255, 255, 0.6);
     margin-bottom: 1.5rem;
 }
 
@@ -614,14 +624,14 @@
     font-size: 1.8rem;
     font-weight: 800;
     margin-bottom: 0.8rem;
-    color: var(--contrast);
+    color: white;
     letter-spacing: -0.01em;
 }
 
 .bannerContent p {
     font-size: 1.15rem;
     line-height: 1.7;
-    color: #444;
+    color: rgba(255, 255, 255, 0.8);
     max-width: 800px;
 }
 
@@ -637,7 +647,7 @@
     gap: 1.5rem;
     justify-content: center;
     font-size: 0.9rem;
-    color: #888;
+    color: rgba(255, 255, 255, 0.5);
     font-weight: 600;
 }
 
@@ -662,10 +672,12 @@
 }
 
 .paymentCard {
-    background: white;
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     padding: 2.5rem 2rem;
     border-radius: var(--radius-lg);
-    border: 1px solid var(--neutral-gray);
+    border: 1px solid rgba(255, 255, 255, 0.08);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -712,24 +724,25 @@
     font-size: 1.3rem;
     font-weight: 800;
     margin-bottom: 0.5rem;
-    color: var(--contrast);
+    color: white;
 }
 
 .paymentInfo p {
-    color: #666;
+    color: rgba(255, 255, 255, 0.6);
     font-size: 0.9rem;
     font-weight: 500;
 }
 
 .clientPortal {
     margin: 6rem 0;
-    background: linear-gradient(135deg, #020a06 0%, #0a1f14 100%);
+    background: radial-gradient(circle at 100% 0%, #1a030d 0%, #050102 100%);
     border-radius: var(--radius-lg);
     padding: 6rem 4rem;
     position: relative;
     overflow: hidden;
     color: white;
-    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(151, 7, 71, 0.1);
 }
 
 .clientPortal::before {
@@ -1004,31 +1017,33 @@
 }
 
 .securityInfo {
-    background: #f8f9fa;
+    background: rgba(151, 7, 71, 0.05);
     padding: 3rem 2.5rem;
     border-radius: var(--radius-lg);
-    border: 1px dashed var(--primary);
+    border: 1px dashed rgba(151, 7, 71, 0.4);
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
     justify-content: center;
     height: 100%;
+    backdrop-filter: blur(10px);
 }
 
 .securityIcon {
     font-size: 2.5rem;
     margin-bottom: 1.5rem;
+    filter: drop-shadow(0 0 10px rgba(151, 7, 71, 0.5));
 }
 
 .securityInfo h4 {
     font-size: 1.4rem;
-    color: var(--contrast);
+    color: white;
     margin-bottom: 1rem;
 }
 
 .securityInfo p {
-    color: #666;
+    color: rgba(255, 255, 255, 0.6);
     font-size: 0.9rem;
     line-height: 1.6;
 }
