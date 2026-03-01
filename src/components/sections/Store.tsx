@@ -51,7 +51,7 @@ const specializedApps = [
         )
     },
     {
-        title: "Gestión de Horas",
+        title: "Labora",
         description: "Sistema web para el control, registro y recuperación de horas no laboradas eficientemente.",
         price: "Bajo Cotización",
         image: "/images/stock/time-management.jpg",
@@ -181,7 +181,7 @@ const Store = () => {
             </div>
             <div className={`container ${styles.container}`}>
                 <div className={styles.header}>
-                    <h2 className={styles.title}>Tecnología de Vanguardia</h2>
+                    <h2 className={styles.title}>Nuestra Tienda</h2>
                     <p className={styles.subtitle}>Soluciones digitales listas para potenciar tu productividad y control.</p>
                 </div>
 
@@ -368,7 +368,7 @@ const Store = () => {
                 <div className={styles.timeManagementShowcase}>
                     <div className={styles.showcaseHeader}>
                         <div className={styles.showcaseTitle}>
-                            <h3 style={{ color: 'var(--contrast)' }}>Control de Horas: Gestión de Recuperación</h3>
+                            <h3 style={{ color: 'var(--contrast)' }}>Labora: Gestión de Recuperación</h3>
                             <div className={styles.divider} style={{ height: '4px', width: '80px', background: 'var(--primary)', borderRadius: '100px', margin: '0.5rem 0' }}></div>
                         </div>
                     </div>
@@ -443,7 +443,7 @@ const Store = () => {
                 </div>
 
                 <div className={styles.othersGrid}>
-                    {specializedApps.map((prod, index) => (
+                    {specializedApps.filter(app => app.title !== "Labora").map((prod, index) => (
                         <div key={index} className={styles.otherCard}>
                             <div className={styles.otherImageWrapper}>
                                 <img src={prod.image as string} alt={prod.title} className={styles.otherCardImage} />

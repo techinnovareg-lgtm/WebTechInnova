@@ -25,17 +25,15 @@
     z-index: 0;
 }
 
-.techGrid {
+.techBackground {
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background-image:
-        linear-gradient(rgba(151, 7, 71, 0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(151, 7, 71, 0.03) 1px, transparent 1px);
-    background-size: 80px 80px;
-    mask-image: radial-gradient(circle at center, black, transparent 80%);
+    pointer-events: none;
+    z-index: 0;
+    background: radial-gradient(circle at 0% 100%, rgba(151, 7, 71, 0.02) 0%, transparent 40%);
 }
 
 .techGlow,
