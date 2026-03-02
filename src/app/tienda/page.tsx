@@ -12,7 +12,7 @@ export default function TiendaPage() {
     return (
         <>
             <Header />
-            <main style={{ paddingTop: '80px' }}>
+            <main>
                 <Store />
             </main>
             <Footer />

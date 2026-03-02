@@ -175,15 +175,26 @@ const Store = () => {
     return (
         <section className={`${styles.store} ${isVisible ? styles.revealed : ''}`} id="tienda" ref={setRef}>
             <div className={styles.techBackground}>
-                <div className={styles.techGrid}></div>
                 <div className={styles.techGlow}></div>
                 <div className={styles.techGlow2}></div>
             </div>
-            <div className={`container ${styles.container}`}>
-                <div className={styles.header}>
-                    <h2 className={styles.title}>Nuestra Tienda</h2>
-                    <p className={styles.subtitle}>Soluciones digitales listas para potenciar tu productividad y control.</p>
+
+            {/* Store Hero Banner */}
+            <div className={styles.storeHero}>
+                <div className={styles.storeHeroGlow}></div>
+                <div className={`container ${styles.storeHeroContent}`}>
+                    <div className={styles.storeHeroBadge}>Productos &amp; Soluciones Digitales</div>
+                    <h1 className={styles.storeHeroTitle}>Nuestra Tienda</h1>
+                    <p className={styles.storeHeroSubtitle}>Soluciones digitales listas para potenciar tu productividad y control.</p>
+                    <div className={styles.storeHeroStats}>
+                        <div className={styles.storeHeroStat}><strong>10+</strong><span>Años de Exp.</span></div>
+                        <div className={styles.storeHeroStat}><strong>2</strong><span>Productos Core</span></div>
+                        <div className={styles.storeHeroStat}><strong>100%</strong><span>Éxito</span></div>
+                    </div>
                 </div>
+            </div>
+
+            <div className={`container ${styles.container}`}>
 
                 <div className={styles.internationalBanner}>
                     <div className={styles.bannerIcon}>🌍</div>

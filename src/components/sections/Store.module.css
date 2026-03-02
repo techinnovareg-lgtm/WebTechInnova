@@ -1,5 +1,5 @@
 .store {
-    padding: 10rem 0;
+    padding: 0 0 8rem 0;
     background: #ffffff;
     position: relative;
     overflow: hidden;
@@ -7,6 +7,136 @@
     transform: translateY(30px);
     transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
+
+/* ---- Store Hero Banner ---- */
+.storeHero {
+    background: radial-gradient(circle at 60% 50%, #2d0413 0%, #1a030d 100%);
+    padding: 10rem 0 6rem;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 6rem;
+}
+
+.storeHero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23970747' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 1;
+}
+
+.storeHeroContent {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: white;
+}
+
+.storeHeroBadge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(151, 7, 71, 0.2);
+    border: 1px solid rgba(151, 7, 71, 0.4);
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 0.5rem 1.2rem;
+    border-radius: 100px;
+    margin-bottom: 2rem;
+}
+
+.storeHeroBadge::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    background: var(--primary);
+    border-radius: 50%;
+    box-shadow: 0 0 8px var(--primary);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.4;
+    }
+}
+
+.storeHeroTitle {
+    font-size: 4rem;
+    font-weight: 900;
+    letter-spacing: -0.03em;
+    margin: 0 auto 1.5rem;
+    line-height: 1.1;
+    background: linear-gradient(135deg, #fff 40%, rgba(200, 9, 94, 0.8) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    max-width: 700px;
+}
+
+.storeHeroSubtitle {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.6);
+    max-width: 500px;
+    margin: 0 auto 3rem;
+    line-height: 1.7;
+}
+
+.storeHeroStats {
+    display: flex;
+    justify-content: center;
+    gap: 4rem;
+    margin-top: 3.5rem;
+}
+
+.storeHeroStat {
+    text-align: center;
+}
+
+.storeHeroStat strong {
+    display: block;
+    font-size: 2.4rem;
+    font-weight: 900;
+    color: white;
+    letter-spacing: -0.02em;
+}
+
+.storeHeroStat span {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.5);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 600;
+}
+
+.storeHeroGlow {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(151, 7, 71, 0.35) 0%, transparent 70%);
+    filter: blur(80px);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* ---- end Store Hero Banner ---- */
+
 
 .store.revealed {
     opacity: 1;
@@ -265,25 +395,29 @@
 }
 
 .prodBadge {
-    padding: 0.75rem 1.5rem;
-    background: white;
+    padding: 0.45rem 1.1rem;
+    background: rgba(0, 166, 81, 0.07);
     color: #00713d;
     border-radius: 100px;
-    font-size: 0.95rem;
-    font-weight: 700;
-    border: 1px solid rgba(0, 166, 81, 0.2);
-    box-shadow: 0 4px 12px rgba(0, 166, 81, 0.08);
+    font-size: 0.78rem;
+    font-weight: 800;
+    border: 1px solid rgba(0, 166, 81, 0.25);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    white-space: nowrap;
 }
 
 .timeBadge {
-    padding: 0.75rem 1.5rem;
-    background: white;
+    padding: 0.45rem 1.1rem;
+    background: rgba(151, 7, 71, 0.07);
     color: var(--primary);
     border-radius: 100px;
-    font-size: 0.95rem;
-    font-weight: 700;
+    font-size: 0.78rem;
+    font-weight: 800;
     border: 1px solid rgba(151, 7, 71, 0.2);
-    box-shadow: 0 4px 12px rgba(151, 7, 71, 0.08);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    white-space: nowrap;
 }
 
 

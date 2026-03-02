@@ -274,9 +274,9 @@
 
 .subtitle {
     font-size: 1.2rem;
-    color: #444;
+    color: rgba(255, 255, 255, 0.65);
     margin-bottom: 2.5rem;
-    line-height: 1.6;
+    line-height: 1.7;
     font-weight: 400;
     max-width: 90%;
 }
@@ -305,20 +305,21 @@
 }
 
 .secondaryBtn {
-    background: white;
-    color: var(--primary) !important;
+    background: rgba(255, 255, 255, 0.08);
+    color: white !important;
     padding: 1.25rem 2.5rem;
     border-radius: 100px;
     font-weight: 700;
     font-size: 1.1rem;
-    border: 1px solid var(--neutral-gray);
-    box-shadow: var(--shadow-soft);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(8px);
     transition: all 0.3s ease;
     text-decoration: none;
 }
 
 .secondaryBtn:hover {
-    background: var(--neutral-light);
+    background: rgba(255, 255, 255, 0.18);
+    border-color: rgba(255, 255, 255, 0.5);
     transform: translateY(-3px);
 }
 
