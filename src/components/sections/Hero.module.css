@@ -389,8 +389,15 @@
 
 .cardContent h3 {
     font-size: 1.8rem;
-    margin-bottom: 1rem;
+    margin-bottom: 0.75rem;
     color: var(--primary);
+}
+
+.cardContent p {
+    font-size: 1rem;
+    color: #333;
+    line-height: 1.6;
+    font-weight: 500;
 }
 
 .statsGrid {
@@ -406,8 +413,22 @@
 
 .statNumber {
     font-size: 2rem;
-    font-weight: 800;
+    font-weight: 900;
     color: var(--contrast);
+    letter-spacing: -0.02em;
+    animation: statPop 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
+}
+
+@keyframes statPop {
+    from {
+        transform: scale(0.6);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
 }
 
 .statLabel {

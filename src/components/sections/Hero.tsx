@@ -1,7 +1,43 @@
+"use client";
+
 import Link from 'next/link';
+import { useEffect, useRef, useState } from 'react';
 import styles from './Hero.module.css';
 
+function useCountUp(target: number, duration: number = 1800, startOnMount: boolean = true) {
+    const [count, setCount] = useState(0);
+    const [started, setStarted] = useState(false);
+    const ref = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        if (!startOnMount) return;
+        const observer = new IntersectionObserver(
+            ([entry]) => { if (entry.isIntersecting) { setStarted(true); observer.disconnect(); } },
+            { threshold: 0.4 }
+        );
+        if (ref.current) observer.observe(ref.current);
+        return () => observer.disconnect();
+    }, [startOnMount]);
+
+    useEffect(() => {
+        if (!started) return;
+        let start = 0;
+        const step = Math.ceil(target / (duration / 16));
+        const timer = setInterval(() => {
+            start += step;
+            if (start >= target) { setCount(target); clearInterval(timer); }
+            else setCount(start);
+        }, 16);
+        return () => clearInterval(timer);
+    }, [started, target, duration]);
+
+    return { count, ref };
+}
+
 const Hero = () => {
+    const years = useCountUp(10);
+    const success = useCountUp(100, 2200);
+
     return (
         <section className={styles.hero} id="inicio">
             <div className={styles.neuralPortal}>
@@ -10,7 +46,7 @@ const Hero = () => {
             </div>
             <div className={styles.dataWave}>
                 {[...Array(20)].map((_, i) => (
-                    <div key={i} className={`${styles.waveDot} ${styles[`d${i + 1}`]}`}></div>
+                    <div key={i} className={`${styles.waveDot} ${styles[`d${i + 1}` as keyof typeof styles]}`}></div>
                 ))}
             </div>
             <div className={`container ${styles.container}`}>
@@ -40,18 +76,18 @@ const Hero = () => {
                         />
                         <div className={styles.imageOverlay}></div>
                     </div>
-                    <div className={styles.glassCard}>
+                    <div className={styles.glassCard} ref={years.ref}>
                         <div className={styles.floatingBadge}>SENIOR CONSULTING</div>
                         <div className={styles.cardContent}>
                             <h3>Tech Innova</h3>
                             <p>Especialistas en automatización avanzada y desarrollo de alto rendimiento.</p>
                             <div className={styles.statsGrid}>
                                 <div className={styles.statItem}>
-                                    <span className={styles.statNumber}>10+</span>
+                                    <span className={styles.statNumber}>{years.count}+</span>
                                     <span className={styles.statLabel}>Años Exp</span>
                                 </div>
                                 <div className={styles.statItem}>
-                                    <span className={styles.statNumber}>100%</span>
+                                    <span className={styles.statNumber}>{success.count}%</span>
                                     <span className={styles.statLabel}>Éxito</span>
                                 </div>
                             </div>
@@ -62,6 +98,5 @@ const Hero = () => {
         </section>
     );
 };
-
 
 export default Hero;
