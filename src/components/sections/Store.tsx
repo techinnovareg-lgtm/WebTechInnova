@@ -1,8 +1,25 @@
 "use client";
 
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import useReveal from '@/hooks/useReveal';
 import styles from './Store.module.css';
+
+function useCountUp(target: number, duration: number, started: boolean) {
+    const [count, setCount] = useState(0);
+    useEffect(() => {
+        if (!started) return;
+        let current = 0;
+        const steps = Math.ceil(duration / 16);
+        const increment = target / steps;
+        const timer = setInterval(() => {
+            current += increment;
+            if (current >= target) { setCount(target); clearInterval(timer); }
+            else setCount(Math.floor(current));
+        }, 16);
+        return () => clearInterval(timer);
+    }, [started, target, duration]);
+    return count;
+}
 
 const easyRentPlans = [
     {
@@ -99,12 +116,16 @@ const resourceServices = [
 const paymentLinks = [
     {
         name: "Yape / Plin",
-        description: "Pagos instantáneos",
+        description: "Pagos instantáneos móvil",
         gradient: "linear-gradient(135deg, #74278c, #9c4bb1)",
         icon: (
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
-                <line x1="12" y1="18" x2="12.01" y2="18"></line>
+            /* Yape icon: stylized mobile phone with signal waves */
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="12" y="4" width="24" height="40" rx="4" fill="white" fillOpacity="0.15" stroke="white" strokeWidth="2" />
+                <circle cx="24" cy="38" r="2" fill="white" />
+                <path d="M18 14 L24 22 L30 14" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+                <path d="M20 20 L24 28 L28 20" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" opacity="0.7" />
+                <text x="24" y="34" textAnchor="middle" fontSize="6" fill="white" fontWeight="800" fontFamily="Arial">YAPE</text>
             </svg>
         )
     },
@@ -113,9 +134,16 @@ const paymentLinks = [
         description: "BCP, Interbank, BBVA",
         gradient: "linear-gradient(135deg, #003a8c, #0050b3)",
         icon: (
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <rect x="2" y="5" width="20" height="14" rx="2"></rect>
-                <line x1="2" y1="10" x2="22" y2="10"></line>
+            /* Bank transfer icon with building columns */
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M6 20H42" stroke="white" strokeWidth="2.5" strokeLinecap="round" />
+                <path d="M6 34H42" stroke="white" strokeWidth="2" strokeLinecap="round" opacity="0.6" />
+                <rect x="10" y="20" width="4" height="14" fill="white" fillOpacity="0.9" />
+                <rect x="18" y="20" width="4" height="14" fill="white" fillOpacity="0.9" />
+                <rect x="26" y="20" width="4" height="14" fill="white" fillOpacity="0.9" />
+                <rect x="34" y="20" width="4" height="14" fill="white" fillOpacity="0.9" />
+                <polygon points="24,8 6,18 42,18" fill="white" />
+                <rect x="6" y="34" width="36" height="3" rx="1.5" fill="white" />
             </svg>
         )
     },
@@ -124,8 +152,12 @@ const paymentLinks = [
         description: "Tarjetas internacionales",
         gradient: "linear-gradient(135deg, #003087, #009cde)",
         icon: (
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+            /* PayPal brand P logo */
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <text x="24" y="36" textAnchor="middle" fontSize="36" fontWeight="900" fontFamily="Arial, sans-serif"
+                    fill="white" letterSpacing="-2">P</text>
+                <text x="30" y="36" textAnchor="middle" fontSize="36" fontWeight="900" fontFamily="Arial, sans-serif"
+                    fill="white" fillOpacity="0.4" letterSpacing="-2">P</text>
             </svg>
         )
     }
@@ -159,6 +191,20 @@ const Store = () => {
     const [showSupportModal, setShowSupportModal] = useState(false);
     const { setRef, isVisible } = useReveal(0.05);
 
+    // Count-up for store hero stats
+    const storeHeroRef = useRef<HTMLDivElement>(null);
+    const [storeStatsStarted, setStoreStatsStarted] = useState(false);
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            ([entry]) => { if (entry.isIntersecting) { setStoreStatsStarted(true); observer.disconnect(); } },
+            { threshold: 0.3 }
+        );
+        if (storeHeroRef.current) observer.observe(storeHeroRef.current);
+        return () => observer.disconnect();
+    }, []);
+    const storeYears = useCountUp(10, 1600, storeStatsStarted);
+    const storeSuccess = useCountUp(100, 2200, storeStatsStarted);
+
     const formatPrice = (numericPrice: number, basePrice: string, isHybrid?: boolean, oneTime?: number, monthly?: number) => {
         if (currency === 'PEN' || basePrice === 'Consultar' || basePrice === 'Bajo Cotización') return basePrice;
 
@@ -180,16 +226,16 @@ const Store = () => {
             </div>
 
             {/* Store Hero Banner */}
-            <div className={styles.storeHero}>
+            <div className={styles.storeHero} ref={storeHeroRef}>
                 <div className={styles.storeHeroGlow}></div>
                 <div className={`container ${styles.storeHeroContent}`}>
                     <div className={styles.storeHeroBadge}>Productos &amp; Soluciones Digitales</div>
                     <h1 className={styles.storeHeroTitle}>Nuestra Tienda</h1>
                     <p className={styles.storeHeroSubtitle}>Soluciones digitales listas para potenciar tu productividad y control.</p>
                     <div className={styles.storeHeroStats}>
-                        <div className={styles.storeHeroStat}><strong>10+</strong><span>Años de Exp.</span></div>
+                        <div className={styles.storeHeroStat}><strong>{storeYears}+</strong><span>Años de Exp.</span></div>
                         <div className={styles.storeHeroStat}><strong>2</strong><span>Productos Core</span></div>
-                        <div className={styles.storeHeroStat}><strong>100%</strong><span>Éxito</span></div>
+                        <div className={styles.storeHeroStat}><strong>{storeSuccess}%</strong><span>Éxito</span></div>
                     </div>
                 </div>
             </div>

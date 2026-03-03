@@ -4,39 +4,49 @@ import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
 import styles from './Hero.module.css';
 
-function useCountUp(target: number, duration: number = 1800, startOnMount: boolean = true) {
+function useCountUp(target: number, duration: number = 1800, started: boolean = false) {
     const [count, setCount] = useState(0);
-    const [started, setStarted] = useState(false);
-    const ref = useRef<HTMLDivElement>(null);
-
-    useEffect(() => {
-        if (!startOnMount) return;
-        const observer = new IntersectionObserver(
-            ([entry]) => { if (entry.isIntersecting) { setStarted(true); observer.disconnect(); } },
-            { threshold: 0.4 }
-        );
-        if (ref.current) observer.observe(ref.current);
-        return () => observer.disconnect();
-    }, [startOnMount]);
 
     useEffect(() => {
         if (!started) return;
-        let start = 0;
-        const step = Math.ceil(target / (duration / 16));
+        let current = 0;
+        const steps = Math.ceil(duration / 16);
+        const increment = target / steps;
         const timer = setInterval(() => {
-            start += step;
-            if (start >= target) { setCount(target); clearInterval(timer); }
-            else setCount(start);
+            current += increment;
+            if (current >= target) {
+                setCount(target);
+                clearInterval(timer);
+            } else {
+                setCount(Math.floor(current));
+            }
         }, 16);
         return () => clearInterval(timer);
     }, [started, target, duration]);
 
-    return { count, ref };
+    return count;
 }
 
 const Hero = () => {
-    const years = useCountUp(10);
-    const success = useCountUp(100, 2200);
+    const cardRef = useRef<HTMLDivElement>(null);
+    const [animationStarted, setAnimationStarted] = useState(false);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    setAnimationStarted(true);
+                    observer.disconnect();
+                }
+            },
+            { threshold: 0.4 }
+        );
+        if (cardRef.current) observer.observe(cardRef.current);
+        return () => observer.disconnect();
+    }, []);
+
+    const years = useCountUp(10, 1600, animationStarted);
+    const success = useCountUp(100, 2200, animationStarted);
 
     return (
         <section className={styles.hero} id="inicio">
@@ -76,18 +86,18 @@ const Hero = () => {
                         />
                         <div className={styles.imageOverlay}></div>
                     </div>
-                    <div className={styles.glassCard} ref={years.ref}>
+                    <div className={styles.glassCard} ref={cardRef}>
                         <div className={styles.floatingBadge}>SENIOR CONSULTING</div>
                         <div className={styles.cardContent}>
                             <h3>Tech Innova</h3>
                             <p>Especialistas en automatización avanzada y desarrollo de alto rendimiento.</p>
                             <div className={styles.statsGrid}>
                                 <div className={styles.statItem}>
-                                    <span className={styles.statNumber}>{years.count}+</span>
+                                    <span className={styles.statNumber}>{years}+</span>
                                     <span className={styles.statLabel}>Años Exp</span>
                                 </div>
                                 <div className={styles.statItem}>
-                                    <span className={styles.statNumber}>{success.count}%</span>
+                                    <span className={styles.statNumber}>{success}%</span>
                                     <span className={styles.statLabel}>Éxito</span>
                                 </div>
                             </div>
