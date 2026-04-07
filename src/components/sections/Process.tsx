@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from 'react';
+import Image from 'next/image';
 import styles from './Process.module.css';
 
 const steps = [
@@ -62,9 +63,11 @@ const Process = () => {
                 </div>
 
                 <div className={styles.bannerWrapper}>
-                    <img
+                    <Image
                         src="/images/stock/process.jpg"
                         alt="Reunión técnica colaborativa"
+                        width={1200}
+                        height={400}
                         className={styles.bannerImage}
                     />
                     <div className={styles.bannerOverlay}></div>

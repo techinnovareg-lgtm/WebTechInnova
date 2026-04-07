@@ -1,6 +1,7 @@
 "use client";
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
 import styles from './Hero.module.css';
 
@@ -79,9 +80,11 @@ const Hero = () => {
 
                 <div className={styles.visualContainer}>
                     <div className={styles.imageWrapper}>
-                        <img
+                        <Image
                             src="/images/stock/hero.jpg"
                             alt="Equipo profesional colaborando"
+                            width={800}
+                            height={600}
                             className={styles.heroImage}
                         />
                         <div className={styles.imageOverlay}></div>

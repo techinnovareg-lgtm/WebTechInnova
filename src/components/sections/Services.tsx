@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import styles from './Services.module.css';
 
 const services = [
@@ -50,9 +51,11 @@ const Services = () => {
                         </p>
                     </div>
                     <div className={styles.headerImageWrapper}>
-                        <img
+                        <Image
                             src="/images/stock/services.jpg"
                             alt="Desarrollo profesional de software"
+                            width={600}
+                            height={800}
                             className={styles.headerImage}
                         />
                         <div className={styles.imageDecoration}></div>

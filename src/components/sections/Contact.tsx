@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from 'react';
+import Image from 'next/image';
 import styles from './Contact.module.css';
 import { supabase } from '@/lib/supabase';
 
@@ -47,9 +48,11 @@ const Contact = () => {
                     </p>
 
                     <div className={styles.contactImageWrapper}>
-                        <img
+                        <Image
                             src="/images/stock/contact.jpg"
                             alt="Oficina moderna colaborativa"
+                            width={600}
+                            height={800}
                             className={styles.contactImage}
                         />
                         <div className={styles.imageOverlay}></div>
