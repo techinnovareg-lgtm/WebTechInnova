@@ -6,10 +6,12 @@ import Contact from '@/components/sections/Contact';
 
 import Footer from '@/components/common/Footer';
 import WhatsAppButton from '@/components/common/WhatsAppButton';
+import Effects from '@/components/common/Effects';
 
 export default function Home() {
   return (
     <main>
+      <Effects />
       <Header />
       <Hero />
       <Services />
@@ -20,4 +22,3 @@ export default function Home() {
     </main>
   );
 }
-

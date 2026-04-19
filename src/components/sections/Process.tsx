@@ -1,7 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from 'react';
-import Image from 'next/image';
+import { useEffect, useRef } from 'react';
 import styles from './Process.module.css';
 
 const steps = [
@@ -27,66 +26,87 @@ const steps = [
     }
 ];
 
-const Process = () => {
-    const [isVisible, setIsVisible] = useState(false);
-    const [animationKey, setAnimationKey] = useState(0);
-    const sectionRef = useRef<HTMLDivElement>(null);
+const animateCounter = (element: Element) => {
+    const target = parseFloat(element.getAttribute('data-target') || '0');
+    const duration = 2000;
+    const increment = target / (duration / 16);
+    let current = 0;
 
-    const restartAnimation = () => {
-        setAnimationKey(prev => prev + 1);
+    const updateCounter = () => {
+        current += increment;
+        if (current < target) {
+            element.textContent = current.toFixed(0);
+            requestAnimationFrame(updateCounter);
+        } else {
+            element.textContent = target.toString();
+        }
     };
+    updateCounter();
+};
+
+const Process = () => {
+    const statsRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
-        const observer = new IntersectionObserver(
-            ([entry]) => {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    setIsVisible(true);
+                    const statNumbers = entry.target.querySelectorAll(`.${styles.statNumber}`);
+                    statNumbers.forEach(stat => {
+                        if (stat.textContent === '0') {
+                            animateCounter(stat);
+                        }
+                    });
                     observer.unobserve(entry.target);
                 }
-            },
-            { threshold: 0.2 }
-        );
+            });
+        }, { threshold: 0.5 });
 
-        if (sectionRef.current) {
-            observer.observe(sectionRef.current);
+        if (statsRef.current) {
+            observer.observe(statsRef.current);
         }
 
         return () => observer.disconnect();
     }, []);
 
     return (
-        <section className={styles.process} ref={sectionRef}>
-            <div className={`container ${styles.container}`}>
+        <section className={styles.process} id="proceso">
+            <div className="container">
+                {/* Stats Banner */}
+                <div className={styles.stats} ref={statsRef}>
+                    <div className={styles.statsGrid}>
+                        <div className={styles.statCard}>
+                            <div className={styles.statNumber} data-target="10">0</div>
+                            <div className={styles.statLabel}>Años de Experiencia</div>
+                        </div>
+                        <div className={styles.statCard}>
+                            <div className={styles.statNumber} data-target="99">0</div>
+                            <div className={styles.statLabel}>% Satisfacción</div>
+                        </div>
+                        <div className={styles.statCard}>
+                            <div className={styles.statNumber} data-target="50">0</div>
+                            <div className={styles.statLabel}>Proyectos Exitosos</div>
+                        </div>
+                        <div className={styles.statCard}>
+                            <div className={styles.statNumber} data-target="24">0</div>
+                            <div className={styles.statLabel}>/7 Soporte Técnico</div>
+                        </div>
+                    </div>
+                </div>
+
                 <div className={styles.header}>
                     <h2 className={styles.title}>Nuestro Proceso</h2>
                     <p className={styles.subtitle}>Un camino claro y estructurado para asegurar el éxito de cada implementación.</p>
                 </div>
 
-                <div className={styles.bannerWrapper}>
-                    <Image
-                        src="/images/stock/process.jpg"
-                        alt="Reunión técnica colaborativa"
-                        width={1200}
-                        height={400}
-                        className={styles.bannerImage}
-                    />
-                    <div className={styles.bannerOverlay}></div>
-                </div>
-
-                <div
-                    className={`${styles.grid} ${isVisible ? styles.animate : ''}`}
-                    onMouseEnter={restartAnimation}
-                >
-                    <div className={styles.progressLine}>
-                        <div key={animationKey} className={styles.progressBar}></div>
-                    </div>
+                <div className={styles.processGrid}>
                     {steps.map((step, index) => (
-                        <div key={index} className={styles.step}>
-                            <div className={styles.numberContainer}>
-                                <span className={styles.number}>{step.number}</span>
+                        <div key={index} className={styles.processCard}>
+                            <span className={styles.stepNumber}>{step.number}</span>
+                            <div className={styles.processContent}>
+                                <h3 className={styles.stepTitle}>{step.title}</h3>
+                                <p className={styles.stepText}>{step.description}</p>
                             </div>
-                            <h3 className={styles.stepTitle}>{step.title}</h3>
-                            <p className={styles.stepText}>{step.description}</p>
                         </div>
                     ))}
                 </div>

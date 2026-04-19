@@ -1,66 +1,93 @@
 .footer {
-    background-color: var(--contrast);
-    color: white;
-    padding: 4rem 0 2rem;
+    padding: 3rem 2rem 2rem;
+    background: rgba(0, 0, 0, 0.5);
+    border-top: 1px solid var(--glass-border);
+    position: relative;
+    z-index: 10;
 }
 
-.grid {
+.footerContent {
+    max-width: 1400px;
+    margin: 0 auto;
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
-    gap: 4rem;
-    margin-bottom: 3rem;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
 }
 
-.brand h3 {
-    color: white;
-    font-size: 1.5rem;
+.footerSection h3 {
     margin-bottom: 1rem;
+    color: var(--text-primary);
+    font-family: var(--font-heading);
 }
 
-.brand p {
-    color: rgba(255, 255, 255, 0.8);
+.footerSection p {
+    color: var(--text-secondary);
     line-height: 1.6;
-}
-
-.links h4,
-.contact h4 {
-    color: white;
-    margin-bottom: 1.5rem;
-    font-size: 1.1rem;
-}
-
-.links ul {
-    list-style: none;
-}
-
-.links li {
-    margin-bottom: 0.75rem;
-}
-
-.links a {
-    color: rgba(255, 255, 255, 0.8);
-}
-
-.links a:hover {
-    color: var(--accent);
-}
-
-.contact p {
-    color: rgba(255, 255, 255, 0.8);
     margin-bottom: 1rem;
 }
 
-.bottom {
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    padding-top: 2rem;
+.footerSection ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footerSection ul li {
+    margin-bottom: 0.5rem;
+}
+
+.footerSection a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footerSection a:hover {
+    color: var(--accent-pink);
+}
+
+.socialLinks {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.socialLink {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    color: var(--text-primary);
+    text-decoration: none;
+}
+
+.socialLink:hover {
+    background: var(--primary-gradient);
+    transform: translateY(-3px);
+    border-color: transparent;
+}
+
+.footerBottom {
     text-align: center;
-    color: rgba(255, 255, 255, 0.5);
-    font-size: 0.9rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--glass-border);
+    color: var(--text-secondary);
+    font-size: 0.875rem;
 }
 
 @media (max-width: 768px) {
-    .grid {
+    .footerContent {
         grid-template-columns: 1fr;
-        gap: 2rem;
+        text-align: center;
+    }
+
+    .socialLinks {
+        justify-content: center;
     }
 }

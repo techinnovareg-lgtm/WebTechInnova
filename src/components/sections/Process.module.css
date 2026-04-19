@@ -1,186 +1,121 @@
 .process {
-    padding: 8rem 0;
-    background: linear-gradient(180deg, #ffffff 0%, #f8f9fb 100%);
+    padding: 5rem 2rem;
     position: relative;
-    overflow: hidden;
+    z-index: 10;
 }
 
-.process::before {
-    content: '';
-    position: absolute;
-    bottom: -150px;
-    left: -150px;
-    width: 500px;
-    height: 500px;
-    background: radial-gradient(circle, rgba(151, 7, 71, 0.04), transparent 70%);
-    border-radius: 50%;
-    pointer-events: none;
+.stats {
+    padding: 3rem 2rem;
+    background: linear-gradient(135deg, rgba(151, 7, 71, 0.1), rgba(200, 9, 94, 0.1));
+    border-radius: 30px;
+    margin: 2rem auto 4rem;
+    max-width: 1400px;
+}
+
+.statsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+}
+
+.statCard {
+    text-align: center;
+    padding: 2rem;
+}
+
+.statNumber {
+    font-size: 3rem;
+    font-weight: bold;
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 0.5rem;
+    font-family: var(--font-heading);
+}
+
+.statLabel {
+    color: var(--text-secondary);
+    font-size: 1.125rem;
 }
 
 .header {
     text-align: center;
-    margin-bottom: 6rem;
+    margin-bottom: 4rem;
 }
 
 .title {
-    font-size: 2.8rem;
-    font-weight: 800;
-    margin-bottom: 1.2rem;
+    font-size: clamp(2rem, 4vw, 3rem);
+    margin-bottom: 1rem;
+    background: linear-gradient(135deg, #fff 0%, #a0a0b8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 .subtitle {
-    color: #666;
+    font-size: 1.125rem;
+    color: var(--text-secondary);
     max-width: 600px;
     margin: 0 auto;
-    font-size: 1.1rem;
 }
 
-.grid {
+.processGrid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.processCard {
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    padding: 2.5rem;
+    transition: all 0.3s ease;
     position: relative;
 }
 
-.bannerWrapper {
-    width: 100%;
-    height: 250px;
-    border-radius: var(--radius-lg);
-    overflow: hidden;
-    margin-bottom: 5rem;
+.processCard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 40px rgba(151, 7, 71, 0.2);
+}
+
+.stepNumber {
+    font-size: 4rem;
+    font-weight: 800;
+    color: rgba(255, 255, 255, 0.05);
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    font-family: var(--font-heading);
+    line-height: 1;
+}
+
+.processContent {
     position: relative;
-    box-shadow: var(--shadow-medium);
-}
-
-.bannerImage {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    filter: brightness(0.8);
-}
-
-.bannerOverlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.4), transparent);
-}
-
-.progressLine {
-    position: absolute;
-    top: 35px;
-    left: 12%;
-    right: 12%;
-    height: 2px;
-    background: #f0f0f0;
     z-index: 1;
 }
 
-.progressBar {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 0;
-    background: linear-gradient(90deg, var(--primary), var(--accent));
-    transition: width 0.3s ease;
-}
-
-.animate .progressBar,
-.grid:hover .progressBar {
-    animation: loadLine 3s ease-in-out forwards;
-}
-
-@keyframes loadLine {
-    from {
-        width: 0;
-    }
-
-    to {
-        width: 100%;
-    }
-}
-
-.step {
-    text-align: center;
-    position: relative;
-    z-index: 2;
-}
-
-.numberContainer {
-    width: 72px;
-    height: 72px;
-    background: linear-gradient(135deg, var(--primary), var(--accent));
-    color: white;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 2.5rem;
-    position: relative;
-    z-index: 3;
-    box-shadow: 0 10px 25px rgba(151, 7, 71, 0.3);
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-.numberContainer::before {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    border: 2px solid rgba(151, 7, 71, 0.3);
-    transform: scale(1.3);
-    opacity: 0;
-    transition: all 0.4s ease;
-}
-
-.step:hover .numberContainer {
-    transform: scale(1.12);
-    box-shadow: 0 15px 35px rgba(151, 7, 71, 0.4);
-}
-
-.step:hover .numberContainer::before {
-    opacity: 1;
-}
-
-.number {
-    font-size: 1.5rem;
-    font-weight: 800;
-}
-
 .stepTitle {
-    font-size: 1.4rem;
-    font-weight: 700;
+    font-size: 1.5rem;
     margin-bottom: 1rem;
-    color: var(--contrast);
+    color: var(--text-primary);
 }
 
 .stepText {
-    color: #666;
-    font-size: 0.95rem;
+    color: var(--text-secondary);
     line-height: 1.6;
 }
 
-@media (max-width: 992px) {
-    .grid {
+@media (max-width: 768px) {
+    .statsGrid {
         grid-template-columns: repeat(2, 1fr);
-        gap: 4rem;
     }
-
-    .progressLine {
-        display: none;
-    }
-}
-
-@media (max-width: 600px) {
-    .grid {
+    
+    .processGrid {
         grid-template-columns: 1fr;
-    }
-
-    .step {
-        padding-bottom: 2rem;
     }
 }
