@@ -87,7 +87,7 @@ export const specializedApps: SpecializedApp[] = [
         title: "Labora",
         description: "Sistema web para el control, registro y recuperación de horas no laboradas eficientemente.",
         price: "Bajo Cotización",
-        image: "/images/stock/time-management.jpg",
+        image: "/images/labora/labora_banner.png",
         url: "https://techinnovareg-lgtm.github.io/control-horas-app",
         icon: (
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -178,23 +178,33 @@ export const paymentLinks: PaymentLink[] = [
 
 export const controlHorasPlans: PlanPricing[] = [
     {
-        name: "Suscripción Mensual",
-        price: "Consultar",
-        numericPrice: 5,
-        period: "mensual",
-        description: "Ideal para control inmediato y flexible.",
-        features: ["Registro de días/horas", "Calculadora recovery", "Calendario progreso", "Soporte 24/7 WhatsApp"],
-        cta: "Suscribirse Mensual",
+        name: "Plan Básico Promo",
+        price: "Gratis",
+        numericPrice: 0,
+        period: "1 mes",
+        description: "Prueba gratuita de todas las funcionalidades por 1 mes para nuevos usuarios.",
+        features: ["Todas func. libres por 1 mes", "Luego pasa a Plan Básico", "Archivo Digital: ver/cargar 3 docs"],
+        cta: "Iniciar Promo",
         recommended: false
     },
     {
-        name: "Suscripción Anual",
-        price: "Consultar",
-        numericPrice: 20,
-        period: "anual",
-        description: "Ahorra significativamente con el pago anualizado.",
-        features: ["Historial de periodos", "Archivo de registros", "Acceso web global", "Soporte 24/7 WhatsApp"],
-        cta: "Suscribirse Anual",
+        name: "Plan Básico",
+        price: "S/ 7",
+        numericPrice: 7,
+        period: "mensual o S/ 70 anual",
+        description: "Gestión básica para control de horas y documentos recientes.",
+        features: ["Funcionalidades Globales", "Archivo Digital: ver/cargar 3 docs"],
+        cta: "Suscribirse Básico",
+        recommended: false
+    },
+    {
+        name: "Plan Pro",
+        price: "S/ 10",
+        numericPrice: 10,
+        period: "mensual o S/ 100 anual",
+        description: "Control total, almacenamiento en nube e historial completo.",
+        features: ["Todos los módulos (y act.)", "Funcionalidades globales y demás liberadas", "Almacenamiento en la nube", "Historial de todo lo generado"],
+        cta: "Suscribirse Pro",
         recommended: true
     }
 ];

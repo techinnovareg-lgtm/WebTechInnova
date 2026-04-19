@@ -280,8 +280,8 @@ const Store = () => {
                     <div className={styles.showcaseContent}>
                         <div className={styles.showcaseImageWrapper}>
                             <Image
-                                src="/images/stock/time-management.jpg"
-                                alt="Control de horas y productividad"
+                                src="/images/labora/labora_banner.png"
+                                alt="Control de horas y productividad Labora"
                                 width={800}
                                 height={500}
                                 className={styles.showcaseImage}
@@ -298,6 +298,11 @@ const Store = () => {
                                 <span className={styles.timeBadge}>Registro Web</span>
                                 <span className={styles.timeBadge}>Calculadora Recovery</span>
                                 <span className={styles.timeBadge}>Seguridad Total</span>
+                            </div>
+                            <div style={{ marginTop: '1.5rem' }}>
+                                <a href="https://techinnovareg-lgtm.github.io/control-horas-app" target="_blank" rel="noopener noreferrer" className={styles.portalBtn} style={{ display: 'inline-flex', padding: '0.75rem 1.5rem', textDecoration: 'none' }}>
+                                    Acceder a la Plataforma
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -329,7 +334,9 @@ const Store = () => {
                                     <li key={i}>{f}</li>
                                 ))}
                             </ul>
-                            <button className={styles.buyBtn}>{plan.cta}</button>
+                            <a href="https://techinnovareg-lgtm.github.io/control-horas-app/#admin-plans" target="_blank" rel="noopener noreferrer" className={styles.buyBtn} style={{ display: 'block', textAlign: 'center', textDecoration: 'none' }}>
+                                {plan.cta}
+                            </a>
                         </div>
                     ))}
                     <div className={styles.securityInfo}>
