@@ -280,7 +280,7 @@ const Store = () => {
                     <div className={styles.showcaseContent}>
                         <div className={styles.showcaseImageWrapper}>
                             <Image
-                                src="/images/labora/labora_banner.png"
+                                src="/images/labora/labora_banner_hd.png"
                                 alt="Control de horas y productividad Labora"
                                 width={800}
                                 height={500}

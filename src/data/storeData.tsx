@@ -87,7 +87,7 @@ export const specializedApps: SpecializedApp[] = [
         title: "Labora",
         description: "Sistema web para el control, registro y recuperación de horas no laboradas eficientemente.",
         price: "Bajo Cotización",
-        image: "/images/labora/labora_banner.png",
+        image: "/images/labora/labora_banner_hd.png",
         url: "https://techinnovareg-lgtm.github.io/control-horas-app",
         icon: (
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
